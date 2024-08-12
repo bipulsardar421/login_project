@@ -32,9 +32,6 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                             </div>
                         </div>
                     </form>
-
-
-
                 </div>
             </div>
 
@@ -183,42 +180,62 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
         </div>
     </div>
 
-    <div class="tab-content">
+    <div class="tab-content z-3">
 
         <div class="tab-pane fade " id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
             a
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"
-            tabindex="0">b
+            tabindex="0">
+            b
+
         </div>
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"
-            tabindex="0">c</div>
+            tabindex="0">
+            c
+        </div>
         <div class="tab-pane fade" id="v-pills-team" role="tabpanel" aria-labelledby="v-pills-team-tab" tabindex="0">
-            <?php include "./index.php" ?>
+            <?php include './list.php'; ?>
         </div>
         <div class="tab-pane fade" id="v-pills-finance" role="tabpanel" aria-labelledby="v-pills-finance-tab"
-            tabindex="0"><?php include "./list.php" ?>
+            tabindex="0">
+            e
+
+
         </div>
         <div class="tab-pane fade" id="v-pills-org" role="tabpanel" aria-labelledby="v-pills-org-tab" tabindex="0">
-            f</div>
+            f
+
+        </div>
         <div class="tab-pane fade " id="v-pills-performance" role="tabpanel" aria-labelledby="v-pills-performance-tab"
-            tabindex="0">g</div>
+            tabindex="0">
+
+            g
+
+        </div>
 
 
 
         <!-- keeping all the redirection from the dropdown buttons -->
 
         <div class="tab-pane fade " id="profile-nav" role="tabpanel" aria-labelledby="v-pills-performance-tab"
-            tabindex="0">Bipul</div>
+            tabindex="0">
+            Bipul
+        </div>
         <div class="tab-pane fade " id="resetPwd-nav" role="tabpanel" aria-labelledby="v-pills-performance-tab"
-            tabindex="0">Sardar</div>
+            tabindex="0">
+
+            Sardar
+        </div>
         <div class="tab-pane fade " id="logOut-nav" role="tabpanel" aria-labelledby="v-pills-performance-tab"
-            tabindex="0">Bipul Sardar</div>
+            tabindex="0">
+            Bipul Sardar
+        </div>
     </div>
 </div>
 
 
 
 
-<script src="./js/common.js"></script>
+
 <?php include "./include_bootstrap/main-contents-footer.php";

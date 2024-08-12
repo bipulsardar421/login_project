@@ -15,7 +15,7 @@
 
 <body style=" background: rgb(255, 200, 224);
     background: radial-gradient(circle, rgba(255, 200, 224, 1) 0%, rgba(147, 171, 199, 1) 100%);">
-    <div class="container-fluid mt-5 ">
+<div class="container-fluid mt-5 ">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">

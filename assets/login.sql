@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2024 at 03:03 PM
+-- Generation Time: Aug 12, 2024 at 02:31 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,39 +44,12 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`user_id`, `fname`, `lname`, `email`, `phone_no`, `dept`, `status`, `createdAt`, `updatedAt`) VALUES
-(4, 'John', 'Doe', 'john.doe@example.com', '555-1234', 'HR', 'inactive', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(5, 'Jane', 'Smithy', 'jane.smith@example.com', '555-5678', 'Finance', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(6, 'Michael', 'Johnson', 'michael.johnson@example.com', '555-8765', 'IT', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(7, 'Emily', 'Davis', 'emily.davis@example.com', '555-43247', 'Marketing', 'active', '2024-08-02 05:31:47', '2024-08-02 05:32:29'),
-(8, 'Chris', 'Brown', 'chris.brown@example.com', '555-8765', 'Sales', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(9, 'Patricia', 'Miller', 'patricia.miller@example.com', '555-3456', 'Operations', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(10, 'Robert', 'Wilson', 'robert.wilson@example.com', '555-7890', 'HT', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(12, 'David', 'Anderson', 'david.anderson@example.com', '555-9876', 'IT', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(13, 'Barbara', 'Thomas', 'barbara.thomas@example.com', '555-4567', 'Marketing', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(14, 'James', 'Jackson', 'james.jackson@example.com', '555-2345', 'Sales', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(15, 'Mary', 'White', 'mary.white@example.com', '555-3457', 'Operations', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(16, 'William', 'Harris', 'william.harris@example.com', '555-5670', 'HR', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(17, 'Elizabeth', 'Martin', 'elizabeth.martin@example.com', '555-89015', 'Finance', 'active', '2024-08-02 05:31:47', '2024-08-02 05:34:00'),
-(18, 'Richard', 'Thompson', 'richard.thompson@example.com', '555-6781', 'IT', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(19, 'Susan', 'Garcia', 'susan.garcia@example.com', '555-7891', 'Marketing', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(20, 'Joseph', 'Martinez', 'joseph.martinez@example.com', '555-8902', 'Sales', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(21, 'Jessica', 'Robinson', 'jessica.robinson@example.com', '555-3458', 'Operations', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(22, 'Bipul', 'Sardar', 'trial@gmail.com', '1234', 'Demo', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(23, 'Demo', 'Demo', 'demo@gmail.com', '1234567', 'Demo', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(24, 'Bipul', 'Sardar', 'bipul@gmail.com', '12345', 'IT', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(25, 'Xyz1', 'Xyz2', 'abc@gmail.com', '123456789', 'Manager', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(26, 'New', 'Record', 'new@new.com', '123456', 'Super HR', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(27, 'Bipul', 'Sardar', 'bipul@gmail.com', '1234', 'IT', 'inactive', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(28, 'Bipul', 'Sardar New', 'bipulsardar21@gmail.com', '1231235125', 'CEO', 'active', '2024-08-02 05:31:47', '2024-08-02 05:31:47'),
-(29, 'Bipul', 'Sardar', 'test243@gmail.com', '1234', 'Marketing', 'active', '2024-08-02 12:13:20', '2024-08-02 12:13:20'),
-(30, 'Bipul', 'Sardar', 'test243@gmail.com', '1234', 'Marketing', 'active', '2024-08-02 12:14:05', '2024-08-02 12:14:05'),
-(31, 'Test 100', 'Test ', 'test@gmaill.com', '1123', 'HR', 'active', '2024-08-02 12:19:25', '2024-08-02 12:19:25'),
-(32, 'asdfasd', 'adsfasdf', 'cigevac67s8@fuzitea.com', '1234', 'HR', 'active', '2024-08-02 12:21:23', '2024-08-02 12:21:23'),
-(33, 'test', 'full', 'bipul@test.com', '1234', 'HR', 'active', '2024-08-02 12:38:48', '2024-08-02 12:38:48'),
-(34, 'full', 'test', 'gmail@gmail.com', '1232', 'HRM', 'active', '2024-08-02 12:51:07', '2024-08-02 12:51:07'),
-(35, 'Bipul', 'Sardar Test 2', 'gmail@gmail.com', '13456788', 'IT', 'active', '2024-08-02 13:06:57', '2024-08-02 13:06:57'),
-(36, 'Emily', 'Wilsom 2', 'bipulsardar534@gmail.com', '1234567890', 'IT', 'active', '2024-08-02 13:12:56', '2024-08-02 13:12:56'),
-(37, 'Bipul 2', 'Sardar', 'bipulsardar421@hotmail.com', '1234567890', 'IT', 'active', '2024-08-05 04:45:41', '2024-08-05 04:45:41');
+(1, 'John', 'Doe', 'john.doe@example.com', '1234567890', 'IT', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
+(2, 'Jane', 'Smith', 'jane.smith@example.com', '0987654321', 'HR', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
+(3, 'Alice', 'Johnson', 'alice.johnson@example.com', '1112223333', 'Finance', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
+(4, 'Bob', 'Williams', 'bob.williams@example.com', '4445556666', 'Marketing', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
+(5, 'Charlie', 'Brown', 'charlie.brown@example.com', '7778889999', 'Sales', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
+(38, 'Bipul', 'Sardar', 'gmail@gmail.com', '1234567', 'HR', 'active', '2024-08-12 12:12:11', '2024-08-12 12:12:11');
 
 -- --------------------------------------------------------
 
@@ -99,15 +72,12 @@ CREATE TABLE `employees_address` (
 --
 
 INSERT INTO `employees_address` (`sl_no`, `user_id`, `type`, `address`, `city`, `country`, `post_code`) VALUES
-(1, 33, 'Distant', 'Reclamation Colony', 'Near Tina Garage', 'India', 764048),
-(2, 34, 'Full Time', 'Reclamation Colony', 'Near Tina Garage', 'India', 764048),
-(3, 34, '', '', '', '', 0),
-(4, 36, 'Full Time', 'Reclamation Colony', 'Near Tina Garage', 'India', 764048),
-(5, 36, 'Full Time', 'Reclamation Colony', 'Near Tina Garage', 'India', 764048),
-(6, 36, 'Full Time', 'Reclamation Colony', 'Near Tina Garage', 'India', 764048),
-(7, 36, 'Full Time', 'Reclamation Colony', 'Near Tina Garage', 'India', 764048),
-(8, 36, 'Full Time', 'Reclamation Colony', 'Near Tina Garage', 'India', 764048),
-(9, 37, 'Permanent', 'Reclamation Colony', 'Near Tina Garage', 'India', 764048);
+(10, 1, 'Home', '123 Main St', 'New York', 'USA', 10001),
+(11, 2, 'Home', '456 Oak St', 'London', 'UK', 0),
+(12, 3, 'Home', '789 Pine St', 'Toronto', 'Canada', 0),
+(13, 4, 'Home', '321 Cedar St', 'Sydney', 'Australia', 2000),
+(14, 5, 'Home', '654 Maple St', 'Mumbai', 'India', 400001),
+(15, 38, 'Permanent', 'B', 'C', 'D', 58648);
 
 -- --------------------------------------------------------
 
@@ -131,15 +101,12 @@ CREATE TABLE `employees_details_extended` (
 --
 
 INSERT INTO `employees_details_extended` (`sl_no`, `user_id`, `gender`, `dob`, `maritial_status`, `physically_handicapped`, `blood_group`, `nationality`) VALUES
-(1, 33, 'Male', '0000-00-00', 'Single', 'No', 'O+ve', 'Indian'),
-(2, 34, 'Male', '16/07/1999', 'Unmarried', 'No', 'O+ve', 'Indian'),
-(3, 34, 'Male', '16/07/1999', 'Unmarried', 'No', 'O+ve', 'Indian'),
-(4, 36, 'Female', '16/07/1999', 'Married', 'No', 'O+ve', 'Indian'),
-(5, 36, 'Female', '16/07/1999', 'Married', 'No', 'O+ve', 'Indian'),
-(6, 36, 'Female', '16/07/1999', 'Married', 'No', 'O+ve', 'Indian'),
-(7, 36, 'Female', '16/07/1999', 'Married', 'No', 'O+ve', 'Indian'),
-(8, 36, 'Female', '16/07/1999', 'Married', 'No', 'O+ve', 'Indian'),
-(9, 37, 'Male', '16/07/1999', 'Single', 'No', 'O+ve', 'Indian');
+(10, 1, 'Male', '1985-01-01', 'Single', 'No', 'O+', 'American'),
+(11, 2, 'Female', '1990-02-15', 'Married', 'No', 'A-', 'British'),
+(12, 3, 'Female', '1987-03-20', 'Single', 'No', 'B+', 'Canadian'),
+(13, 4, 'Male', '1983-04-10', 'Married', 'No', 'AB+', 'Australian'),
+(14, 5, 'Male', '1992-05-30', 'Single', 'No', 'O-', 'Indian'),
+(15, 38, 'Male', '16-07-1999', 'Unmarried', 'No', 'O+ve', 'Indian');
 
 -- --------------------------------------------------------
 
@@ -162,15 +129,12 @@ CREATE TABLE `employees_education` (
 --
 
 INSERT INTO `employees_education` (`sl_no`, `user_id`, `type`, `branch`, `cgpa`, `yop`, `yoj`) VALUES
-(1, 33, 'Distant', 'CSE', '7.79', 2022, 2017),
-(2, 34, 'Full Time', 'CSE', '7.79', 2022, 2017),
-(3, 34, '', 'CSE', '7.79', 2022, 2017),
-(4, 36, 'Full Time', 'CSE', '7.79', 2022, 2017),
-(5, 36, 'Full Time', 'CSE', '7.79', 2022, 2017),
-(6, 36, 'Full Time', 'CSE', '7.79', 2022, 2017),
-(7, 36, 'Full Time', 'CSE', '7.79', 2022, 2017),
-(8, 36, 'Full Time', 'CSE', '7.79', 2022, 2017),
-(9, 37, 'Permanent', 'CSE', '7.79', 2022, 2017);
+(10, 1, 'B.Tech', 'Computer Science', '8.5', 2007, 2003),
+(11, 2, 'MBA', 'Human Resources', '7.8', 2012, 2010),
+(12, 3, 'B.Com', 'Finance', '8.0', 2009, 2006),
+(13, 4, 'BA', 'Marketing', '7.5', 2005, 2002),
+(14, 5, 'BBA', 'Sales', '8.2', 2014, 2011),
+(15, 38, 'Permanent', 'BTECH', '90', 2022, 2018);
 
 -- --------------------------------------------------------
 
@@ -191,15 +155,12 @@ CREATE TABLE `employees_personal_contact_details` (
 --
 
 INSERT INTO `employees_personal_contact_details` (`sl_no`, `user_id`, `personal_mobile_number`, `personal_email`, `residence_number`) VALUES
-(1, 33, '123456456', 'bipul@email.com', '123456789'),
-(2, 34, '12345', 'gmail@gmail.com', '123456'),
-(3, 34, '12345', 'bipul@email.com', '123456'),
-(4, 36, '12345', 'gmail@gmail.com', '123456'),
-(5, 36, '12345', 'gmail@gmail.com', '123456'),
-(6, 36, '12345', 'gmail@gmail.com', '123456'),
-(7, 36, '12345', 'gmail@gmail.com', '123456'),
-(8, 36, '12345', 'gmail@gmail.com', '123456'),
-(9, 37, '12345', 'glue@glue.com', '789456123');
+(10, 1, '1234567890', 'john.personal@example.com', '123456789'),
+(11, 2, '0987654321', 'jane.personal@example.com', '987654321'),
+(12, 3, '1112223333', 'alice.personal@example.com', '111222333'),
+(13, 4, '4445556666', 'bob.personal@example.com', '444555666'),
+(14, 5, '7778889999', 'charlie.personal@example.com', '777888999'),
+(15, 38, '0123', 'bipulsardar@gmail.com', '0123');
 
 -- --------------------------------------------------------
 
@@ -280,7 +241,8 @@ INSERT INTO `userdetails` (`sl_no`, `firstName`, `lastName`, `email`, `password`
 (30, 'koyabe1170@alientex.com', 'koyabe1170@alientex.com', 'koyabe1170@alientex.com', '$2y$10$GzfaOpdZRfEkEhocx4fAFuPTRX9CkvNJz1uYaBFPuTpXUcrRZ3ls.'),
 (31, 'giliver235@biowey.com', 'giliver235@biowey.com', 'giliver235@biowey.com', '$2y$10$Z1C9uuMLEdWGlTL5Gt6XWeF9PvI0wh3bJuL0xNLjWw1ZsLaNi64Q2'),
 (32, 'yolegic762@biscoine.com', 'yolegic762@biscoine.com', 'yolegic762@biscoine.com', '$2y$10$.bU5.0aTZTcqbLmFYkulveaZgXK5FxFvT5zo.HmU2A5QxpGp8vzFm'),
-(33, 'hawok45743@biowey.com', 'hawok45743@biowey.com', 'hawok45743@biowey.com', '$2y$10$WqtubcISaDTUIdyYYcOJR.wunPUQ2a3eHsemN77862FLIl6dICUG.');
+(33, 'hawok45743@biowey.com', 'hawok45743@biowey.com', 'hawok45743@biowey.com', '$2y$10$WqtubcISaDTUIdyYYcOJR.wunPUQ2a3eHsemN77862FLIl6dICUG.'),
+(34, 'Bipul', 'Sardar', 'gmail@trimail.com', '$2y$10$RTsJ0AnMoI8V.4UHCUXvmehhfLi2C3Qakaxho/pR5h203c4g107q6');
 
 --
 -- Indexes for dumped tables
@@ -341,31 +303,31 @@ ALTER TABLE `userdetails`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `employees_address`
 --
 ALTER TABLE `employees_address`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `employees_details_extended`
 --
 ALTER TABLE `employees_details_extended`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `employees_education`
 --
 ALTER TABLE `employees_education`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `employees_personal_contact_details`
 --
 ALTER TABLE `employees_personal_contact_details`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `otpvalidation`
@@ -377,7 +339,7 @@ ALTER TABLE `otpvalidation`
 -- AUTO_INCREMENT for table `userdetails`
 --
 ALTER TABLE `userdetails`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables

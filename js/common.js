@@ -29,44 +29,44 @@ $(document).ready(function () {
       currentDestination = dest;
     },
   });
-  $("#nav-search").on("input", function () {
-    var searchValue = $(this).val();
+  // $("#nav-search").on("input", function () {
+  //   var searchValue = $(this).val();
 
-    $.ajax({
-      url: "../login_projects/db-connection/search.php",
-      type: "POST",
-      data: { search: searchValue },
-      success: function (response) {
-        var data = JSON.parse(response);
+  //   $.ajax({
+  //     url: "../login_projects/db-connection/search.php",
+  //     type: "POST",
+  //     data: { search: searchValue },
+  //     success: function (response) {
+  //       var data = JSON.parse(response);
 
-        $("#search-results").empty();
-        if (data.length > 0) {
-          var resultsHtml = "<ul class='list-group'>";
-          data.forEach(function (item) {
-            resultsHtml +=
-              "<li class='list-group-item'><a href='#' class='dropdown-item'";
-            resultsHtml +=
-              "<strong>Name:</strong> " +
-              item.fname +
-              " " +
-              item.lname +
-              "<br>";
-            resultsHtml += "<strong>Department:</strong> " + item.dept + "<br>";
-            resultsHtml += "</a></li>";
-          });
-          resultsHtml += "</ul>";
+  //       $("#search-results").empty();
+  //       if (data.length > 0) {
+  //         var resultsHtml = "<ul class='list-group'>";
+  //         data.forEach(function (item) {
+  //           resultsHtml +=
+  //             "<li class='list-group-item'><a href='#' class='dropdown-item'";
+  //           resultsHtml +=
+  //             "<strong>Name:</strong> " +
+  //             item.fname +
+  //             " " +
+  //             item.lname +
+  //             "<br>";
+  //           resultsHtml += "<strong>Department:</strong> " + item.dept + "<br>";
+  //           resultsHtml += "</a></li>";
+  //         });
+  //         resultsHtml += "</ul>";
 
-          $("#search-results").html(resultsHtml);
-        } else {
-          $("#search-results").html("<p>No results found.</p>");
-        }
-      },
-      error: function (xhr, status, error) {
-        console.error("Search failed:", error);
-        $("#search-results").html("<p>An error occurred while searching.</p>");
-      },
-    });
-  });
+  //         $("#search-results").html(resultsHtml);
+  //       } else {
+  //         $("#search-results").html("<p>No results found.</p>");
+  //       }
+  //     },
+  //     error: function (xhr, status, error) {
+  //       console.error("Search failed:", error);
+  //       $("#search-results").html("<p>An error occurred while searching.</p>");
+  //     },
+  //   });
+  // });
 
   // $("#nav-search").on("input", function () {
   //   var searchValue = $(this).val();
@@ -105,6 +105,16 @@ $(document).ready(function () {
       button.classList.remove("collapse");
     }
   });
+
+  // to handle click from the employee cards
+  $("div#employee-cards").on("mouseleave", ".employee-card", function () {
+    $(this).css("cursor", "default");
+  });
+
+  $("div#employee-cards").on("click", ".employee-card", function () {
+    console.log("Card clicked:", $(this).data("id"));
+  });
+
 });
 
 function init(what) {

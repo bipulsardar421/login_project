@@ -1,3 +1,7 @@
+<?php ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
 <!doctype html>
 <html lang="en">
 
@@ -101,21 +105,23 @@
         }
 
         /*  */
-     .card {
+        /* .card {
             display: none;
             opacity: 0;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 1050; 
+            z-index: 1050;
             transition: all 0.3s ease-in-out;
-        }
+        } */
+
         .expand {
             display: block !important;
             opacity: 1 !important;
             max-height: 1000px;
         }
+
         .btn-disappear {
             transition: all 0.3s ease-in-out;
         }
