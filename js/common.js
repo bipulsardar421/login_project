@@ -1,6 +1,9 @@
 $(document).ready(function () {
   init("oninit");
 
+  google.charts.load("current", { packages: ["corechart"] });
+  google.charts.setOnLoadCallback(drawChart);
+
   var windowWidth = $(window).width();
   console.log(windowWidth);
   if (windowWidth < 720) {
@@ -68,22 +71,6 @@ $(document).ready(function () {
   //   });
   // });
 
-  // $("#nav-search").on("input", function () {
-  //   var searchValue = $(this).val();
-  //   $.ajax({
-  //     url: "../login_projects/db-connection/search.php",
-  //     type: "POST",
-  //     data: { search: searchValue },
-  //     success: function (response) {
-  //       var data = JSON.parse(response);
-  //       console.log("Search Results:", data);
-  //     },
-  //     error: function (xhr, status, error) {
-  //       console.error("Search failed:", error);
-  //     },
-  //   });
-  // });
-
   document.getElementById("search_btn").addEventListener("click", function () {
     var button = this;
     var card = document.getElementById("search_card");
@@ -107,22 +94,118 @@ $(document).ready(function () {
   });
 
   // to handle click from the employee cards
-  $("div#employee-cards").on("mouseleave", ".employee-card", function () {
-    $(this).css("cursor", "default");
-  });
 
-  $("div#employee-cards").on("click", ".employee-card", function () {
-    console.log("Card clicked:", $(this).data("id"));
-  });
+  $("#employee-cards").on("click", ".card", function () {
+    const userId = $(this).find(".user_id").val();
+    console.log("User ID:", userId);
 
+    init("ngDestroy");
+    $("#employees-nav").addClass("show active");
+    const formData = new FormData();
+    formData.append("user_id", userId);
+
+    fetch("./db-connection/get-employee-details.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const employee = data;
+        const employeeCards = document.getElementById("employee-detail-cards");
+        const cardDiv = document.createElement("div");
+        cardDiv.className = "employee-profile-card";
+        employeeCards.innerHTML = "";
+        cardDiv.innerHTML = `
+        <div class="card h-100">
+        <div class="card-header d-flex justify-content-end"><button class="btn btn-transparent" onClick="closeEmployee()"><i class="fa fa-close"></i></button></div>
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <img src="${employee.url}" alt="Employee Photo" class="me-3" style="width: 80px; height: 80px;">
+              <div>
+                <h5 class="card-title mb-1" style="font-size: 1.3rem;">${employee.fname} ${employee.lname} <span class="badge bg-success ms-2">IN</span></h5>
+                <p>
+                   ${employee.dept} | <a href="mailto:${employee.email}" class="text-decoration-none">${employee.email}</a> | 
+                  ${employee.phone_no} | 
+                  ${employee.city}, ${employee.country}
+                </p>
+              </div>
+            </div>
+            <div class="row mt-3 d-flex justify-content-between">
+              <p class="mb-1"><strong>Business Unit:</strong> ${employee.dept}</p>
+              <p class="mb-1"><strong>Department:</strong> ${employee.dept}</p>
+              <p class="mb-1"><strong>Location:</strong> ${employee.city}</p>
+              <p class="mb-1"><strong>Country:</strong> ${employee.country}</p>
+            </div>
+          </div>
+        </div>
+      `;
+        employeeCards.appendChild(cardDiv);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  });
 });
-
+function closeEmployee() {
+  init("ngDestroy");
+  $("#v-pills-team").addClass("show active");
+}
 function init(what) {
   if (what == "oninit") {
     $("#v-pills-home").addClass("show active");
+  } else if (what == "ngDestroy") {
+    var activeTabPane = $(".tab-pane.show.active");
+    activeTabPane.removeClass("show active");
   } else {
     $("#v-pills-home").removeClass("show active");
   }
 
   console.log("Initialization logic for static elements");
+}
+
+function drawChart() {
+  const dataBar = google.visualization.arrayToDataTable([
+    ["Year", "Git Contribution"],
+    [2001, 70],
+    [2002, 80],
+    [2003, 80],
+    [2004, 90],
+    [2005, 90],
+    [2006, 90],
+    [2007, 50],
+    [2008, 60],
+    [2009, 70],
+    [2010, 60],
+    [2011, 40],
+  ]);
+  const dataPie = google.visualization.arrayToDataTable([
+    ["Year", "Git Contribution"],
+
+    ["2007", 50],
+    ["2008", 60],
+    ["2009", 70],
+    ["2010", 60],
+    ["2011", 40],
+  ]);
+  const optionsBar = {
+    title: "Performance review for last 10 years",
+    hAxis: { title: "Years" },
+    vAxis: { title: "Git Contribution" },
+    legend: "none",
+  };
+  const optionsPie = {
+    title: "Performance review for last 5 years",
+  };
+  const chart = new google.visualization.LineChart(
+    document.getElementById("barChart")
+  );
+  const pie = new google.visualization.PieChart(
+    document.getElementById("pieChart")
+  );
+
+  chart.draw(dataBar, optionsBar);
+  pie.draw(dataPie, optionsPie);
 }

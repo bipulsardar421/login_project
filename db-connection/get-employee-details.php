@@ -6,6 +6,13 @@ include "../db-connection/main-connection-db-model.php";
 if ($conn->connect_error) {
     die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
 }
+$user_id = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
+
+if ($user_id <= 0) {
+    echo json_encode(["error" => "Invalid user_id"]);
+    $conn->close();
+    exit;
+}
 $sql = "SELECT 
             mainEmp.user_id, mainEmp.fname, mainEmp.lname, mainEmp.email, mainEmp.phone_no, mainEmp.dept,
             details.gender, details.dob, details.maritial_status, details.physically_handicapped, details.blood_group, details.nationality,
@@ -25,21 +32,20 @@ $sql = "SELECT
             employees_address AS addr ON mainEmp.user_id = addr.user_id
         LEFT JOIN
             emp_image AS emp_img on mainEmp.user_id = emp_img.user_id
-        WHERE mainEmp.status = 'active'";
+        WHERE mainEmp.status = 'active' AND mainEmp.user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
+$employee = $result->fetch_assoc();
 
-$result = $conn->query($sql);
-
-$employees = [];
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $employees[] = $row;
-    }
-    echo json_encode($employees);
+if ($employee) {
+    echo json_encode($employee);
 } else {
-    echo json_encode([]);
+    echo json_encode(["error" => "No employee found"]);
 }
 
+$stmt->close();
 $conn->close();
 ?>

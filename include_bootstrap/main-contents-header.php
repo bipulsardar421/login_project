@@ -41,6 +41,8 @@ error_reporting(E_ALL);
             display: flex;
             height: 100vh;
             flex-direction: row;
+            background: rgb(255, 200, 224);
+            background: radial-gradient(circle, rgba(255, 200, 224, 1) 0%, rgba(147, 171, 199, 1) 100%);
         }
 
         .sidebar {
@@ -124,6 +126,22 @@ error_reporting(E_ALL);
 
         .btn-disappear {
             transition: all 0.3s ease-in-out;
+        }
+
+        #myTab .nav-link {
+            color: grey !important;
+        }
+
+        #myTab .nav-link.active {
+            color: black !important;
+        }
+
+       
+
+        #home-card-body .card-body {
+            font-size: 0.9rem;
+            height: auto;
+            overflow: visible;
         }
     </style>
 
