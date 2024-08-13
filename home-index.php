@@ -5,6 +5,7 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 ?>
 <nav class="navbar navbar-expand-sm bg-body-tertiary nav-bar-color"
     style="position: fixed; top: 0; width: 100%; z-index: 1070;">
+
     <div class="container-fluid">
         <div class="row w-100 justify-content-between">
             <div class="col d-flex align-items-center">
@@ -74,7 +75,7 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 </nav>
 
 <div class="main-container"
-    style="position: fixed; top: 56px; width: 100%; height: calc(100vh - 56px); overflow-y: auto;">
+    style="position: fixed; top: 56px; width: 100%; height: calc(100vh - 56px); overflow-y: auto; z-index: 1070;">
     <div class="sidebar nav flex-column me-3 nav-underline" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <!-- Home Section  -->
         <button type="button" class="btn btn-secondary" id="v-pills-home-tab" data-bs-toggle="pill"
@@ -125,7 +126,7 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                 </div>
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" data-value="No">Summary</a></li>
+                <li><a class="dropdown-item" id="emp-summary">Summary</a></li>
 
             </ul>
         </div>
@@ -183,6 +184,7 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
     </div>
 
     <div class="tab-content z-3" style="">
+
 
         <div class="tab-pane fade " id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
             <div class="container mt-3">
@@ -251,8 +253,7 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-outline-secondary"
                                 style="width:8rem">Organization</button>
-                            <button type="button" class="btn btn-outline-secondary"
-                                style="width:8rem">your_dept</button>
+                            <button type="button" class="btn btn-outline-secondary" style="width:8rem">Dept</button>
                         </div>
                         <div class="card mt-4">
                             <ul class="nav nav-underline mx-4" id="myTab" role="tablist" style="color: grey;">
@@ -444,6 +445,268 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                 </div>
 
             </div>
+        </div>
+        <div class="tab-pane fade " id="employees-summary-nav" role="tabpanel" aria-labelledby="v-pills-performance-tab"
+            tabindex="0">
+            <?php
+            $employees = isset($_SESSION['employees']) ? $_SESSION['employees'] : [];
+            ?>
+            <div class="container mt-4 ">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-5">
+                            <div class="card-body vh-100" style="overflow-y: auto;">
+                                <form>
+                                    <div class="d-grid d-md-flex justify-content-md-end">
+                                        <button type="button" class="btn btn-primary col-md-4 m-1"
+                                            data-bs-toggle="modal" data-bs-target="#addEmp">
+                                            Add New Employee
+                                        </button>
+                                    </div>
+                                    <script>function redirectPage(where) {
+                                            if (where == 'logOut') {
+                                                sessionStorage.clear();
+                                                localStorage.clear();
+                                                window.location.href = "../index.php"
+                                            }
+                                        }</script>
+                                    <table border="1" class="table table-hover border border-success p-2 mb-2">
+                                        <thead>
+                                            <tr style="text-align: center;">
+                                                <th style="padding: 10px;">Sl No</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Phone Number</th>
+                                                <th>Department</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php if (count($employees) > 0): ?>
+                                                <?php foreach ($employees as $index => $employee): ?>
+                                                    <tr style="text-align: center;"
+                                                        onclick="hello(<?php echo htmlspecialchars($employee['user_id']); ?>)">
+                                                        <script>function hello(userId) {
+                                                                return userId;
+                                                            }</script>
+
+                                                        <td><?php echo htmlspecialchars($index + 1); ?>
+                                                            <input type="hidden" name="id_from_table" id="id_from_table"
+                                                                value="<?php echo htmlspecialchars($employee['user_id']); ?>">
+                                                        </td>
+                                                        <td><?php echo htmlspecialchars($employee['fname']); ?></td>
+                                                        <td><?php echo htmlspecialchars($employee['lname']); ?></td>
+                                                        <td><?php echo htmlspecialchars($employee['email']); ?></td>
+                                                        <td><?php echo htmlspecialchars($employee['phone_no']); ?></td>
+                                                        <td><?php echo htmlspecialchars($employee['dept']); ?></td>
+                                                        <td style="text-align: center;">
+                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                                data-bs-target="#editEmp-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                style="background-color: transparent; border: none; color: red; cursor: pointer;">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </button>
+                                                            <div class="modal fade"
+                                                                style="position: fixed; top: 0; width: 100%; z-index: 1070;"
+                                                                id="editEmp-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                tabindex="-1"
+                                                                aria-labelledby="editModalLabel-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                                Fill the
+                                                                                employee details:</h1>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form action="../db-connection/edit-employee.php"
+                                                                                method="post">
+
+                                                                                <div class="input-group input-group-sm mb-3">
+                                                                                    <span class="input-group-text"
+                                                                                        id="inputGroup-sizing-sm">First
+                                                                                        Name</span>
+                                                                                    <input class="form-control"
+                                                                                        aria-label="Sizing example input"
+                                                                                        aria-describedby="inputGroup-sizing-sm"
+                                                                                        type="text"
+                                                                                        id="fname-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                                        name="fname"
+                                                                                        value="<?php echo htmlspecialchars($employee['fname']); ?>"
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <div class="input-group input-group-sm mb-3">
+                                                                                    <span class="input-group-text"
+                                                                                        id="inputGroup-sizing-sm">Last
+                                                                                        Name</span>
+                                                                                    <input class="form-control"
+                                                                                        aria-label="Sizing example input"
+                                                                                        aria-describedby="inputGroup-sizing-sm"
+                                                                                        id="lname-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                                        name="lname"
+                                                                                        value="<?php echo htmlspecialchars($employee['lname']); ?>"
+                                                                                        required>
+                                                                                </div>
+                                                                                <div class="input-group input-group-sm mb-3">
+                                                                                    <span class="input-group-text"
+                                                                                        id="inputGroup-sizing-sm">Email</span>
+                                                                                    <input class="form-control"
+                                                                                        aria-label="Sizing example input"
+                                                                                        aria-describedby="inputGroup-sizing-sm"
+                                                                                        type="email"
+                                                                                        id="email-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                                        name="email"
+                                                                                        value="<?php echo htmlspecialchars($employee['email']); ?>"
+                                                                                        required>
+                                                                                </div>
+                                                                                <div class="input-group input-group-sm mb-3">
+                                                                                    <span class="input-group-text"
+                                                                                        id="inputGroup-sizing-sm">Phone
+                                                                                        Number</span>
+                                                                                    <input class="form-control"
+                                                                                        aria-label="Sizing example input"
+                                                                                        aria-describedby="inputGroup-sizing-sm"
+                                                                                        type="text"
+                                                                                        id="phone_no-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                                        name="phone_no"
+                                                                                        value="<?php echo htmlspecialchars($employee['phone_no']); ?>"
+                                                                                        required>
+                                                                                </div>
+                                                                                <div class="input-group input-group-sm mb-3">
+                                                                                    <span class="input-group-text"
+                                                                                        id="inputGroup-sizing-sm">Department</span>
+                                                                                    <input class="form-control"
+                                                                                        aria-label="Sizing example input"
+                                                                                        aria-describedby="inputGroup-sizing-sm"
+                                                                                        type="text"
+                                                                                        id="dept-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                                        name="dept"
+                                                                                        value="<?php echo htmlspecialchars($employee['dept']); ?>"
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <input type="hidden" name="user_id"
+                                                                                    value="<?php echo htmlspecialchars($employee['user_id']); ?>">
+                                                                                <div class="sign_btn">
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-primary">Update
+                                                                                        Employee</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">
+                                                            <form action="../db-connection/delete-employee.php" method="post">
+                                                                <input type="hidden" name="user_id"
+                                                                    value="<?php echo htmlspecialchars($employee['user_id']); ?>">
+                                                                <button type="button" class="btn btn-danger"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#deleteConfirmationModal-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                    style="background-color: transparent; border: none; color: red; cursor: pointer;">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
+                                                                <div class="modal fade"
+                                                                    id="deleteConfirmationModal-<?php echo htmlspecialchars($employee['user_id']); ?>"
+                                                                    tabindex="-1" aria-labelledby="deleteConfirmationLabel"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-body">
+                                                                                Are you sure you want to delete this record?
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary"
+                                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                                <button type="submit"
+                                                                                    class="btn btn-danger">Delete</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <tr>
+                                                    <td colspan="8">No employees found</td>
+                                                </tr>
+                                            <?php endif; ?>
+                                        </tbody>
+
+                                    </table>
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade mt-5 " id="addEmp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="position: fixed; top: 0; width: 100%; z-index: 1070;">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="status" class="mt-5">
+                </div>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Fill the employee details:</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="emp_details_add_form">
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">First Name</span>
+                        <input class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" type="text" id="fname" name="fname"
+                            placeholder="First Name" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Last Name</span>
+                        <input class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" type="text" id="lname" name="lname"
+                            placeholder="Last Name" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                        <input class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" type="email" id="email" name="email"
+                            placeholder="Email" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Phone Number</span>
+                        <input class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" type="text" id="phone_no" name="phone_no"
+                            placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Department</span>
+                        <input class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" type="text" id="dept" name="dept"
+                            placeholder="Department" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="emp_details_add_btn">Add Employees</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

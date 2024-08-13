@@ -97,8 +97,6 @@ $(document).ready(function () {
 
   $("#employee-cards").on("click", ".card", function () {
     const userId = $(this).find(".user_id").val();
-    console.log("User ID:", userId);
-
     init("ngDestroy");
     $("#employees-nav").addClass("show active");
     const formData = new FormData();
@@ -119,36 +117,110 @@ $(document).ready(function () {
         const employeeCards = document.getElementById("employee-detail-cards");
         const cardDiv = document.createElement("div");
         cardDiv.className = "employee-profile-card";
+        let url = employee.url ? employee.url : './assets/fallback_image/profile.jpg';
         employeeCards.innerHTML = "";
         cardDiv.innerHTML = `
         <div class="card h-100">
-        <div class="card-header d-flex justify-content-end"><button class="btn btn-transparent" onClick="closeEmployee()"><i class="fa fa-close"></i></button></div>
+          <div class="card-header d-flex justify-content-end">
+            <button class="btn btn-transparent" onClick="closeEmployee()">
+              <i class="fa fa-close"></i>
+            </button>
+          </div>
           <div class="card-body">
             <div class="d-flex align-items-center">
-              <img src="${employee.url}" alt="Employee Photo" class="me-3" style="width: 80px; height: 80px;">
+              <img src="${url}" alt="Employee Photo" class="me-3" style="width: 80px; height: 80px;"
+                onerror="this.onerror=null;this.src='./assets/fallback_image/profile.jpg';">              
               <div>
-                <h5 class="card-title mb-1" style="font-size: 1.3rem;">${employee.fname} ${employee.lname} <span class="badge bg-success ms-2">IN</span></h5>
+                <h5 class="card-title mb-1" style="font-size: 1.3rem;">
+                  ${employee.fname} ${employee.lname} 
+                  <span class="badge bg-success ms-2">IN</span>
+                </h5>
                 <p>
-                   ${employee.dept} | <a href="mailto:${employee.email}" class="text-decoration-none">${employee.email}</a> | 
+                  ${employee.dept} | <a href="mailto:${employee.email}" class="text-decoration-none">${employee.email}</a> | 
                   ${employee.phone_no} | 
                   ${employee.city}, ${employee.country}
                 </p>
               </div>
             </div>
-            <div class="row mt-3 d-flex justify-content-between">
-              <p class="mb-1"><strong>Business Unit:</strong> ${employee.dept}</p>
-              <p class="mb-1"><strong>Department:</strong> ${employee.dept}</p>
-              <p class="mb-1"><strong>Location:</strong> ${employee.city}</p>
-              <p class="mb-1"><strong>Country:</strong> ${employee.country}</p>
+            <hr class="my-4">
+            <div class="d-flex justify-content-start">
+              <p class="mb-1 mx-2"><strong>Business Unit:</strong> ${employee.dept}</p>
+              <p class="mb-1 mx-2"><strong>Department:</strong> ${employee.dept}</p>
+              <p class="mb-1 mx-2"><strong>Location:</strong> ${employee.city}</p>
+              <p class="mb-1 mx-2"><strong>Country:</strong> ${employee.country}</p>
             </div>
+
           </div>
         </div>
       `;
+
         employeeCards.appendChild(cardDiv);
       })
       .catch((error) => console.error("Error fetching data:", error));
   });
+  // this is to handle emp summary nav
+  $("#emp-summary").on("click", function () {
+    init("ngDestroy");
+    $("#employees-summary-nav").addClass("show active");
+  })
+
+  $(document).ready(function () {
+    $('#emp_details_add_btn').on('click', function (e) {
+      e.preventDefault();
+
+      var formData = {
+        fname: $('#fname').val(),
+        lname: $('#lname').val(),
+        email: $('#email').val(),
+        phone_no: $('#phone_no').val(),
+        dept: $('#dept').val()
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: './db-connection/add-employee.php',
+        data: formData,
+        dataType: 'json',
+        success: function (response) {
+          console.log(response);
+          if (response.success) {
+            appendAlert(response.message, 'danger');
+            // $('#addEmp').modal('hide');
+          } else {
+            alert(response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error('AJAX Error:', status, error);
+        }
+      });
+    });
+  });
+
+
+  const alertPlaceholder = document.getElementById('status')
+  const appendAlert = (message, type) => {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      '</div>'
+    ].join('')
+
+    alertPlaceholder.append(wrapper)
+  }
+
+  const alertTrigger = document.getElementById('liveAlertBtn')
+  if (alertTrigger) {
+    alertTrigger.addEventListener('click', () => {
+      appendAlert('Nice, you triggered this alert message!', 'success')
+    })
+  }
 });
+
+
+// outside
 function closeEmployee() {
   init("ngDestroy");
   $("#v-pills-team").addClass("show active");

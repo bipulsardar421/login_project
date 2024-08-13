@@ -1,7 +1,4 @@
-<?php ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-?>
+
 <!doctype html>
 <html lang="en">
 
@@ -15,6 +12,8 @@ error_reporting(E_ALL);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
+       
+
         .nav-bar-color {
             background: rgb(131, 58, 180);
             background: linear-gradient(90deg, rgba(131, 58, 180, 0.46262254901960786) 0%, rgba(191, 253, 29, 0.21052170868347342) 52%, rgba(252, 176, 69, 0.22452731092436973) 100%);
@@ -136,7 +135,7 @@ error_reporting(E_ALL);
             color: black !important;
         }
 
-       
+
 
         #home-card-body .card-body {
             font-size: 0.9rem;

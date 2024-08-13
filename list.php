@@ -32,7 +32,7 @@ error_reporting(E_ALL);
                 .then(data => {
                     const employeeCards = document.getElementById('employee-cards');
                     data.forEach(employee => {
-                        console.log(employee.user_id);
+                        let url = employee.url ? employee.url : './assets/fallback_image/profile.jpg';
                         const cardDiv = document.createElement('div');
                         cardDiv.className = 'col-sm-3 mb-4';
                         cardDiv.innerHTML = `
@@ -40,7 +40,8 @@ error_reporting(E_ALL);
                             <div class="card h-100" id="list-card">
                                 <div class="card-body" style="font-size: 0.9rem;">
                                     <div class="d-flex align-items-center mb-3">
-                                        <img src=${employee.url} alt="Employee Photo" class="rounded-circle me-3" style="width: 60px; height: 60px;">
+                                        <img src=${url} alt="Employee Photo" class="rounded-circle me-3" style="width: 60px; height: 60px;"
+                                         onerror="this.onerror=null;this.src='./assets/fallback_image/profile.jpg';">
                                         <h5 class="card-title mb-0" style="font-size: 1.1rem;">${employee.fname} ${employee.lname}</h5>
                                     </div>
                                     <input type="hidden" class="user_id" name="user_id" value="${employee.user_id}">
