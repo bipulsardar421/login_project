@@ -4,7 +4,7 @@ session_start();
 $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 ?>
 <nav class="navbar navbar-expand-sm bg-body-tertiary nav-bar-color"
-    style="position: fixed; top: 0; width: 100%; z-index: 1070;">
+    style="position: fixed; top: 0; width: 100%; z-index:1070" id="mainNavContainer">
 
     <div class="container-fluid">
         <div class="row w-100 justify-content-between">
@@ -24,18 +24,19 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                             </div>
                         </button>
                         <div id="search_card" class="card"
-                            style="display: none;opacity: 0;position: absolute;top: 200%;left: 50%;transform: translate(-50%, -50%);z-index: 1050; transition: all 0.3s ease-in-out;max-height: 70vh; width: 80%;">
-                            <div class="card-header" style="position: sticky;top: 0;z-index: 100;background: #fff;">
+                            style="display: none; opacity: 0; position: fixed; top: 1rem; left: 50%; transform: translate(-50%, 0); z-index: 1050; transition: all 0.3s ease-in-out; max-height: 70vh; width: 50%;">
+                            <div class="card-header" style="position: sticky; top: 0; z-index: 100; background: #fff;">
                                 <input id="nav-search" type="text" class="form-control"
                                     placeholder="Type your query..." />
                             </div>
-
                             <div class="card-body" style="max-height: 50vh; overflow-y: auto;" id="search-results">
+
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+
 
             <div class="col d-flex justify-content-end align-items-center z-3">
                 <div class="btn-group dropStart">
@@ -56,7 +57,7 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                         <li><a class="dropdown-item" href="#" dest="#resetPwd-nav" data-value="No"> <i
                                     class="fas fa-key"></i>&nbsp;&nbsp;Change
                                 Password</a></li>
-                        <li><a class="dropdown-item" href="#" dest="#logOut-nav" data-value="No"><i
+                        <li><a class="dropdown-item" href="#" dest="#logOut-nav" data-value="No" id="logOut"><i
                                     class="fas fa-sign-out"></i>&nbsp;&nbsp;Log
                                 Out</a></li>
                     </ul>
@@ -75,7 +76,8 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 </nav>
 
 <div class="main-container"
-    style="position: fixed; top: 56px; width: 100%; height: calc(100vh - 56px); overflow-y: auto; z-index: 1070;">
+    style="position: fixed; top: 56px; width: 100%; height: calc(100vh - 56px); overflow-y: auto;"
+    id="tabPaneMainContainer">
     <div class="sidebar nav flex-column me-3 nav-underline" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <!-- Home Section  -->
         <button type="button" class="btn btn-secondary" id="v-pills-home-tab" data-bs-toggle="pill"
@@ -120,7 +122,7 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
             <button type="button" class="btn btn-secondary" id="v-pills-team-tab" data-bs-toggle="pill"
                 data-bs-target="#v-pills-team" type="button" role="tab" aria-controls="v-pills-team"
                 aria-selected="false">
-                <div class="row justify-items-center">
+                <div class="row justify-items-center" onclick="populateEmployeeDetails()">
                     <i class="fa fa-group"></i>
                     <span class="font-size" id="label_side_bar_icon">My Team</span>
                 </div>
@@ -183,10 +185,13 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
         </div>
     </div>
 
-    <div class="tab-content z-3" style="">
+    <div class="tab-content z-3" style="flex: 1;
+    overflow-y: auto;
+    background: transparent;">
 
 
-        <div class="tab-pane fade " id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+        <div class="tab-pane fade " style="height: 100vh;" id="v-pills-home" role="tabpanel"
+            aria-labelledby="v-pills-home-tab" tabindex="0">
             <div class="container mt-3">
                 <div class="row" id="home-content">
                     <div class="col-md-3 mb-4">
@@ -338,8 +343,8 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
             </div>
 
         </div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"
-            tabindex="0">
+        <div class="tab-pane fade" style="height: 100vh;" id="v-pills-profile" role="tabpanel"
+            aria-labelledby="v-pills-profile-tab" tabindex="0">
             <div class="container ms-4 mt-3">
                 <div class="card">
                     <nav class="nav nav-underline p-2">
@@ -353,8 +358,8 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"
-            tabindex="0">
+        <div class="tab-pane fade" style="height: 100vh;" id="v-pills-messages" role="tabpanel"
+            aria-labelledby="v-pills-messages-tab" tabindex="0">
             <div class="container mt-3">
                 <div class="row form-group">
                     <div class="col-md-2 p-0">
@@ -370,11 +375,15 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="v-pills-team" role="tabpanel" aria-labelledby="v-pills-team-tab" tabindex="0">
-            <?php include './list.php'; ?>
+        <div class="tab-pane fade" style="height: 100vh;" id="v-pills-team" role="tabpanel"
+            aria-labelledby="v-pills-team-tab" tabindex="0">
+            <div class="container mt-5">
+                <div class="row" id="employee-cards">
+                </div>
+            </div>
         </div>
-        <div class="tab-pane fade" id="v-pills-finance" role="tabpanel" aria-labelledby="v-pills-finance-tab"
-            tabindex="0">
+        <div class="tab-pane fade" style="height: 100vh;" id="v-pills-finance" role="tabpanel"
+            aria-labelledby="v-pills-finance-tab" tabindex="0">
             <div class="container ms-4 mt-3">
                 <div class="card">
                     <nav class="nav nav-underline p-2">
@@ -388,7 +397,8 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 
 
         </div>
-        <div class="tab-pane fade" id="v-pills-org" role="tabpanel" aria-labelledby="v-pills-org-tab" tabindex="0">
+        <div class="tab-pane fade" style="height: 100vh;" id="v-pills-org" role="tabpanel"
+            aria-labelledby="v-pills-org-tab" tabindex="0">
             <div class="container ms-4 mt-3">
                 <div class="card">
                     <nav class="nav nav-underline p-2">
@@ -401,8 +411,8 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
             </div>
 
         </div>
-        <div class="tab-pane fade " id="v-pills-performance" role="tabpanel" aria-labelledby="v-pills-performance-tab"
-            tabindex="0">
+        <div class="tab-pane fade " style="height: 100vh;" id="v-pills-performance" role="tabpanel"
+            aria-labelledby="v-pills-performance-tab" tabindex="0">
             <div class="container mt-3">
                 <div class="row">
                     <div class="col-md-6">
@@ -448,29 +458,22 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
         </div>
         <div class="tab-pane fade " id="employees-summary-nav" role="tabpanel" aria-labelledby="v-pills-performance-tab"
             tabindex="0">
-            <?php
-            $employees = isset($_SESSION['employees']) ? $_SESSION['employees'] : [];
-            ?>
-            <div class="container mt-4 ">
-
+            <div class="container mt-4">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mb-5">
+
                             <div class="card-body vh-100" style="overflow-y: auto;">
                                 <form>
+                                    <div id="status">
+                                    </div>
+
                                     <div class="d-grid d-md-flex justify-content-md-end">
                                         <button type="button" class="btn btn-primary col-md-4 m-1"
                                             data-bs-toggle="modal" data-bs-target="#addEmp">
                                             Add New Employee
                                         </button>
                                     </div>
-                                    <script>function redirectPage(where) {
-                                            if (where == 'logOut') {
-                                                sessionStorage.clear();
-                                                localStorage.clear();
-                                                window.location.href = "../index.php"
-                                            }
-                                        }</script>
                                     <table border="1" class="table table-hover border border-success p-2 mb-2">
                                         <thead>
                                             <tr style="text-align: center;">
@@ -484,190 +487,35 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                                                 <th>Delete</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php if (count($employees) > 0): ?>
-                                                <?php foreach ($employees as $index => $employee): ?>
-                                                    <tr style="text-align: center;"
-                                                        onclick="hello(<?php echo htmlspecialchars($employee['user_id']); ?>)">
-                                                        <script>function hello(userId) {
-                                                                return userId;
-                                                            }</script>
-
-                                                        <td><?php echo htmlspecialchars($index + 1); ?>
-                                                            <input type="hidden" name="id_from_table" id="id_from_table"
-                                                                value="<?php echo htmlspecialchars($employee['user_id']); ?>">
-                                                        </td>
-                                                        <td><?php echo htmlspecialchars($employee['fname']); ?></td>
-                                                        <td><?php echo htmlspecialchars($employee['lname']); ?></td>
-                                                        <td><?php echo htmlspecialchars($employee['email']); ?></td>
-                                                        <td><?php echo htmlspecialchars($employee['phone_no']); ?></td>
-                                                        <td><?php echo htmlspecialchars($employee['dept']); ?></td>
-                                                        <td style="text-align: center;">
-                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                                data-bs-target="#editEmp-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                style="background-color: transparent; border: none; color: red; cursor: pointer;">
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </button>
-                                                            <div class="modal fade"
-                                                                style="position: fixed; top: 0; width: 100%; z-index: 1070;"
-                                                                id="editEmp-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                tabindex="-1"
-                                                                aria-labelledby="editModalLabel-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                                Fill the
-                                                                                employee details:</h1>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <form action="../db-connection/edit-employee.php"
-                                                                                method="post">
-
-                                                                                <div class="input-group input-group-sm mb-3">
-                                                                                    <span class="input-group-text"
-                                                                                        id="inputGroup-sizing-sm">First
-                                                                                        Name</span>
-                                                                                    <input class="form-control"
-                                                                                        aria-label="Sizing example input"
-                                                                                        aria-describedby="inputGroup-sizing-sm"
-                                                                                        type="text"
-                                                                                        id="fname-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                                        name="fname"
-                                                                                        value="<?php echo htmlspecialchars($employee['fname']); ?>"
-                                                                                        required>
-                                                                                </div>
-
-                                                                                <div class="input-group input-group-sm mb-3">
-                                                                                    <span class="input-group-text"
-                                                                                        id="inputGroup-sizing-sm">Last
-                                                                                        Name</span>
-                                                                                    <input class="form-control"
-                                                                                        aria-label="Sizing example input"
-                                                                                        aria-describedby="inputGroup-sizing-sm"
-                                                                                        id="lname-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                                        name="lname"
-                                                                                        value="<?php echo htmlspecialchars($employee['lname']); ?>"
-                                                                                        required>
-                                                                                </div>
-                                                                                <div class="input-group input-group-sm mb-3">
-                                                                                    <span class="input-group-text"
-                                                                                        id="inputGroup-sizing-sm">Email</span>
-                                                                                    <input class="form-control"
-                                                                                        aria-label="Sizing example input"
-                                                                                        aria-describedby="inputGroup-sizing-sm"
-                                                                                        type="email"
-                                                                                        id="email-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                                        name="email"
-                                                                                        value="<?php echo htmlspecialchars($employee['email']); ?>"
-                                                                                        required>
-                                                                                </div>
-                                                                                <div class="input-group input-group-sm mb-3">
-                                                                                    <span class="input-group-text"
-                                                                                        id="inputGroup-sizing-sm">Phone
-                                                                                        Number</span>
-                                                                                    <input class="form-control"
-                                                                                        aria-label="Sizing example input"
-                                                                                        aria-describedby="inputGroup-sizing-sm"
-                                                                                        type="text"
-                                                                                        id="phone_no-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                                        name="phone_no"
-                                                                                        value="<?php echo htmlspecialchars($employee['phone_no']); ?>"
-                                                                                        required>
-                                                                                </div>
-                                                                                <div class="input-group input-group-sm mb-3">
-                                                                                    <span class="input-group-text"
-                                                                                        id="inputGroup-sizing-sm">Department</span>
-                                                                                    <input class="form-control"
-                                                                                        aria-label="Sizing example input"
-                                                                                        aria-describedby="inputGroup-sizing-sm"
-                                                                                        type="text"
-                                                                                        id="dept-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                                        name="dept"
-                                                                                        value="<?php echo htmlspecialchars($employee['dept']); ?>"
-                                                                                        required>
-                                                                                </div>
-
-                                                                                <input type="hidden" name="user_id"
-                                                                                    value="<?php echo htmlspecialchars($employee['user_id']); ?>">
-                                                                                <div class="sign_btn">
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary">Update
-                                                                                        Employee</button>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td style="text-align: center;">
-                                                            <form action="../db-connection/delete-employee.php" method="post">
-                                                                <input type="hidden" name="user_id"
-                                                                    value="<?php echo htmlspecialchars($employee['user_id']); ?>">
-                                                                <button type="button" class="btn btn-danger"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#deleteConfirmationModal-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                    style="background-color: transparent; border: none; color: red; cursor: pointer;">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </button>
-                                                                <div class="modal fade"
-                                                                    id="deleteConfirmationModal-<?php echo htmlspecialchars($employee['user_id']); ?>"
-                                                                    tabindex="-1" aria-labelledby="deleteConfirmationLabel"
-                                                                    aria-hidden="true">
-                                                                    <div class="modal-dialog">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-body">
-                                                                                Are you sure you want to delete this record?
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary"
-                                                                                    data-bs-dismiss="modal">Cancel</button>
-                                                                                <button type="submit"
-                                                                                    class="btn btn-danger">Delete</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                            <?php else: ?>
-                                                <tr>
-                                                    <td colspan="8">No employees found</td>
-                                                </tr>
-                                            <?php endif; ?>
+                                        <tbody id="employeeTableBody">
+                                            <!-- Employees will be populated here dynamically using jQuery -->
                                         </tbody>
-
                                     </table>
-
                                 </form>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
 
+
+<!-- Add Emp-->
 <div class="modal fade mt-5 " id="addEmp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     style="position: fixed; top: 0; width: 100%; z-index: 1070;">
 
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <div id="status" class="mt-5">
-                </div>
+            <div class="modal-header d-flex justify-content-between align-items-center">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Fill the employee details:</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="col-md-12">
+                <div id="status" class="mt-3">
+                </div>
             </div>
             <form id="emp_details_add_form">
                 <div class="modal-body">
@@ -711,8 +559,368 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
     </div>
 </div>
 
+<div class="modal fade" style="position: fixed; top: 0; width: 100%; z-index: 1070;" id="editEmp" tabindex="-1"
+    aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between align-items-center">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Fill the employee details:</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="col-md-12">
+                <div id="status" class="mt-3">
+                </div>
+            </div>
+            <div class="modal-body">
+                <form id="edit-employee-form">
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">First Name</span>
+                        <input class="form-control" type="text" id="fname" name="fname" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Last Name</span>
+                        <input class="form-control" type="text" id="lname" name="lname" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                        <input class="form-control" type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Phone Number</span>
+                        <input class="form-control" type="text" id="phone_no" name="phone_no" required>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Department</span>
+                        <input class="form-control" type="text" id="dept" name="dept" required>
+                    </div>
+                    <input type="hidden" id="user_id" name="user_id">
+                    <div class="sign_btn">
+                        <button type="submit" class="btn btn-primary">Update Employee</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="modal fade mt-3" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Are you sure you want to delete this record?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="deleteClose" data-bs-dismiss="modal"
+                    aria-label="Close">Cancel</button>
+                <button id="deleteEmp" class="btn btn-danger" onclick="setId()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- addl information -->
+<div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <section class="section">
+                    <div class="container">
+                        <!-- Stepper Progress -->
+                        <div class="stepper">
+                            <div class="step-item" data-step="1">
+                                <div class="step-marker">1</div>
+                            </div>
+                            <div class="step-item" data-step="2">
+                                <div class="step-marker">2</div>
+                            </div>
+                            <div class="step-item" data-step="3">
+                                <div class="step-marker">3</div>
+                            </div>
+                            <div class="step-item" data-step="4">
+                                <div class="step-marker">4</div>
+                            </div>
+                            <div class="step-item" data-step="4">
+                                <div class="step-marker">5</div>
+                            </div>
+                        </div>
 
+                        <!-- Form Steps -->
+                        <form id="multiStepForm">
+                            <input type="hidden" name="user_id" id="user_id_additional" value="">
+                            <!-- Step 1 -->
+                            <div class="step active" data-step="1">
+                                <h2 class="title">Basic Details</h2>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3 dropdown-center">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Gender</span>
+                                        <button class="form-control btn btn-outline-secondary dropdown-toggle"
+                                            style="border-color:#dee2e6" type="button" id="gender"
+                                            data-bs-toggle="dropdown" aria-expanded="true">
+                                            Select an option
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#" data-value="Male">Male</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#" data-value="Female">Female</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#" data-value="Prefer Not To Say!">Prefer
+                                                    Not To Say!</a>
+                                            </li>
+                                        </ul>
+                                        <input type="hidden" name="gender" id="genderInput">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Date of
+                                            Birth</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="dob" name="dob"
+                                            placeholder="Date of Birth" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3 dropdown-center">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Marital
+                                            Status</span>
+                                        <button class="form-control btn btn-outline-secondary dropdown-toggle"
+                                            style="border-color:#dee2e6" type="button" id="marStatus"
+                                            data-bs-toggle="dropdown" aria-expanded="true">
+                                            Select an option
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#" data-value="Married">Married</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#" data-value="Unmarried">Unmarried</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#" data-value="Single">Single</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#" data-value="Divorced">Divorced</a>
+                                            </li>
+                                        </ul>
+                                        <input type="hidden" name="marStatus" id="marStatusInput">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3 dropdown-center">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Is
+                                            Physically
+                                            Handicapped?</span>
+                                        <button class="form-control btn btn-outline-secondary dropdown-toggle"
+                                            style="border-color:#dee2e6" type="button" id="handicapped"
+                                            data-bs-toggle="dropdown" aria-expanded="true">
+                                            Select an option
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#" data-value="Yes">Yes</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#" data-value="No">No</a>
+                                            </li>
+                                        </ul>
+                                        <input type="hidden" name="handicapped" id="handicappedInput">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Blood
+                                            Group</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="blood" name="blood"
+                                            placeholder="Blood Group" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Nationality</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="nation"
+                                            name="nation" placeholder="Nationality" required>
+                                    </div>
+                                </div>
+                                <button type="button" class="button is-link" onclick="nextStep(2)">Next</button>
+                            </div>
 
-<?php include "./include_bootstrap/main-contents-footer.php";
+                            <!-- Step 2 -->
+                            <div class="step hidden" data-step="2">
+                                <h2 class="title">Contact Details</h2>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Personal
+                                            Number</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="pnumber"
+                                            name="pnumber" placeholder="Personal Number" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Personal
+                                            Email</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="pEmail"
+                                            name="pEmail" placeholder="Personal Email" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Residential
+                                            Number</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="rNumber"
+                                            name="rNumber" placeholder="Residential Number" required>
+                                    </div>
+                                </div>
+                                <button type="button" class="button is-link is-light"
+                                    onclick="prevStep(1)">Back</button>
+                                <button type="button" class="button is-link" onclick="nextStep(3)">Next</button>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="step hidden" data-step="3">
+                                <h2 class="title">Education</h2>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3 dropdown-center">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Type of
+                                            Education</span>
+                                        <button class="form-control btn btn-outline-secondary dropdown-toggle"
+                                            style="border-color:#dee2e6" type="button" id="edu"
+                                            data-bs-toggle="dropdown" aria-expanded="true">
+                                            Select an option
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#" data-value="Full Time">Full
+                                                    Time</a></li>
+                                            <li><a class="dropdown-item" href="#" data-value="Distant">Distant</a>
+                                            </li>
+                                        </ul>
+                                        <input type="hidden" name="eduType" id="eduType">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Branch</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="branch"
+                                            name="branch" placeholder="Branch" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">CGPA or
+                                            Percentage</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="marks" name="marks"
+                                            placeholder="CGPA or Percentage" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Year of
+                                            Passing</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="yop" name="yop"
+                                            placeholder="Year of Passing" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Year of
+                                            Joining</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="yoj" name="yoj"
+                                            placeholder="Year of Joining" required>
+                                    </div>
+                                </div>
+                                <button type="button" class="button is-link is-light"
+                                    onclick="prevStep(2)">Back</button>
+                                <button type="button" class="button is-link" onclick="nextStep(4)">Next</button>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="step hidden" data-step="4">
+                                <h2 class="title">Address</h2>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3 dropdown-center">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Type of
+                                            Address</span>
+                                        <button class="form-control btn btn-outline-secondary dropdown-toggle"
+                                            style="border-color:#dee2e6" type="button" id="edu"
+                                            data-bs-toggle="dropdown" aria-expanded="true">
+                                            Select an option
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#" data-value="Permanent">Permanent</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#"
+                                                    data-value="Residential">Residential</a>
+                                            </li>
+                                        </ul>
+                                        <input type="hidden" name="addType" id="addType">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Address</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="address"
+                                            name="address" placeholder="Address" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">City</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="city" name="city"
+                                            placeholder="City" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Country</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="country"
+                                            name="country" placeholder="Country" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Pin
+                                            Code</span>
+                                        <input class="form-control" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm" type="text" id="pincode"
+                                            name="pincode" placeholder="Pin Code" required>
+                                    </div>
+                                </div>
+                                <button type="button" class="button is-link is-light"
+                                    onclick="prevStep(3)">Back</button>
+                                <button type="button" class="button is-link" onclick="nextStep(5)">Next</button>
+                            </div>
+                            <!-- Step 5 -->
+                            <div class="step hidden" data-step="5">
+                                <h2 class="title">Profile Picture</h2>
+                                <div class="field">
+                                    <div class="upload-container">
+                                        <div class="upload-box" id="uploadBox">
+                                            <div class="upload-icon">
+                                                <img src="assets/icons/upload.svg" alt="Upload Icon">
+                                            </div>
+                                            <p>Drop your image here, or <a href="#" id="browseBtn">browse</a></p>
+                                            <p>Supports: JPG, JPEG and PNG</p>
+                                            <input type="file" id="fileInput" style="display: none;" name="image"
+                                                accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="button is-link is-light"
+                                    onclick="prevStep(4)">Back</button>
+                                <button type="submit" class="button is-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php include "./include_bootstrap/main-contents-footer.php"; ?>

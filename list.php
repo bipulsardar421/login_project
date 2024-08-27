@@ -27,35 +27,7 @@ error_reporting(E_ALL);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch('./db-connection/team-details.php')
-                .then(response => response.json())
-                .then(data => {
-                    const employeeCards = document.getElementById('employee-cards');
-                    data.forEach(employee => {
-                        let url = employee.url ? employee.url : './assets/fallback_image/profile.jpg';
-                        const cardDiv = document.createElement('div');
-                        cardDiv.className = 'col-sm-3 mb-4';
-                        cardDiv.innerHTML = `
-                            
-                            <div class="card h-100" id="list-card">
-                                <div class="card-body" style="font-size: 0.9rem;">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <img src=${url} alt="Employee Photo" class="rounded-circle me-3" style="width: 60px; height: 60px;"
-                                         onerror="this.onerror=null;this.src='./assets/fallback_image/profile.jpg';">
-                                        <h5 class="card-title mb-0" style="font-size: 1.1rem;">${employee.fname} ${employee.lname}</h5>
-                                    </div>
-                                    <input type="hidden" class="user_id" name="user_id" value="${employee.user_id}">
-                                    <p class="card-text" style="font-size: 0.85rem;">Position: ${employee.dept}</p>
-                                    <p class="card-text" style="font-size: 0.85rem;">Department: ${employee.dept}</p>
-                                    <p class="card-text" style="font-size: 0.85rem;">Location: ${employee.city}, ${employee.country}</p>
-                                    <p class="card-text" style="font-size: 0.85rem;">Email: <a href="mailto:${employee.email}">${employee.email}</a></p>
-                                </div>
-                            </div>
-                        `;
-                        employeeCards.appendChild(cardDiv);
-                    });
-                })
-                .catch(error => console.error('Error fetching data:', error));
+           
         });
     </script>
 </body>

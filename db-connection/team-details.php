@@ -25,7 +25,7 @@ $sql = "SELECT
             employees_address AS addr ON mainEmp.user_id = addr.user_id
         LEFT JOIN
             emp_image AS emp_img on mainEmp.user_id = emp_img.user_id
-        WHERE mainEmp.status = 'active'";
+        WHERE mainEmp.status = 'active' ORDER BY updatedAt DESC";
 
 
 $result = $conn->query($sql);

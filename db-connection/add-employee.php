@@ -13,16 +13,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone_no = $_POST['phone_no'];
     $dept = $_POST['dept'];
 
+    // Prepare and execute the insert statement
     $sql = "INSERT INTO employees (fname, lname, email, phone_no, dept) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
+
+    if ($stmt === false) {
+        $response['message'] = 'Error preparing statement: ' . $conn->error;
+        echo json_encode($response);
+        exit;
+    }
+
     $stmt->bind_param("sssss", $fname, $lname, $email, $phone_no, $dept);
 
     if ($stmt->execute()) {
-        // Query to get the user ID of the newly added employee
         $getQuery = "SELECT user_id FROM employees WHERE email = ? AND status = 'active'";
         $runQuery = $conn->prepare($getQuery);
+
+        if ($runQuery === false) {
+            $response['message'] = 'Error preparing query: ' . $conn->error;
+            echo json_encode($response);
+            exit;
+        }
+
         $runQuery->bind_param("s", $email);
-        
+
         if ($runQuery->execute()) {
             $result = $runQuery->get_result();
             $row = $result->fetch_assoc();
@@ -39,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $runQuery->close();
     } else {
-        $response['message'] = 'Error: ' . $stmt->error;
+        $response['message'] = 'Error executing statement: ' . $stmt->error;
     }
 
     $stmt->close();
