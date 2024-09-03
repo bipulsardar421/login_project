@@ -12,4 +12,4 @@ Now go to your browser and type http://localhost/phpmyadmin/ and hit ENTER.
 >>> Now once refresh the page and you will see login database is created.
 
 
-Once DB is created open a new tab in your browser and enter this URL http://localhost/login_projects/index.php and hit enter, that's all from there you can explore the site either create a new credential and login using the new credential.
+>>>Once DB is created open a new tab in your browser and enter this URL http://localhost/login_projects/index.php and hit enter, that's all from there you can explore the site either create a new credential and login using the new credential.
