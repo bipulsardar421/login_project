@@ -3,6 +3,8 @@ Steps to run this application
 >>> Download XAMPP server, install it.
 Open XAMPP Server, run APACHE, MYSQL and TOMCAT.
 
+Mandatory 👇
+>>> You have to copy this project to your pc in this location C:\xampp\htdocs this is for windows, for mac just google it "where can you find the htdocs folder in mac"
 
 >>> Importing the DB,
 Go inside login_projects/assets/
