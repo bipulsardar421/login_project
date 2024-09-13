@@ -1,14 +1,16 @@
 <?php
 include ('smtp/PHPMailerAutoload.php');
-$to_add = $_GET['email'];
-$subject_ = "OTP for password reset";
+require "../db-connection/otp-validation.php";
+function prepare_email($email)
+{
+	$subject_ = "OTP for password reset";
+	$msg__ = generateOTP();
+	smtp_mailer($email, $subject_, $msg__);
+}
 function generateOTP()
 {
 	return rand(100000, 999999);
 }
-$msg__ = generateOTP();
-
-echo smtp_mailer($to_add, $subject_, $msg__);
 function smtp_mailer($to, $subject, $msg)
 {
 	$mail = new PHPMailer();

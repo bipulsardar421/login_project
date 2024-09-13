@@ -1,7 +1,8 @@
 <?php
 include "./main-connection-db-model.php";
 session_start();
-
+header('Content-Type: application/json');
+$response = array();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $newPwd = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
@@ -11,19 +12,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt) {
         $stmt->bind_param("ss", $newPwd, $email);
         if ($stmt->execute() === TRUE) {
-            echo "<script>
-            alert('Password updated successfully');
-            window.location.href = '../index.php';
-            </script>";
+            $response['status'] = 'success';
+            $response['message'] = 'Password updated successfully';
+            $response['redirect'] = '../index.php';
         } else {
-            echo "Error: " . $stmt->error;
-            header("Location: ../index.php");
+            $response['status'] = 'error';
+            $response['message'] = 'Error updating password: ' . $stmt->error;
         }
         $stmt->close();
     } else {
-        echo "Error: " . $conn->error;
+        $response['status'] = 'error';
+        $response['message'] = 'Error preparing statement: ' . $conn->error;
     }
 
     $conn->close();
+} else {
+    $response['status'] = 'error';
+    $response['message'] = 'Invalid request method';
 }
+echo json_encode($response);
 ?>
