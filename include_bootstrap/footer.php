@@ -11,7 +11,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-    
+<!-- handler -->
+<script src="./js/handler/login-handler.js" defer></script>
+<script src="./js/handler/sign-up-handler.js" defer></script>
+<script src="./js/handler/forgot-password-handler.js" defer></script>
+<script src="./js/handler/attendance-handler.js" defer></script>
+<script src="./js/handler/attendance-table-handler.js" defer></script>
+
+<!-- common functionality -->
+<script src="./js/common.js" defer></script>
+<script src="./js/spinner.js" defer></script>
+<script src="./js/alert.js" defer></script>
+
 </body>
 
 </html>

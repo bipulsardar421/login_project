@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2024 at 02:31 PM
+-- Generation Time: Sep 03, 2024 at 07:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,12 +44,26 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`user_id`, `fname`, `lname`, `email`, `phone_no`, `dept`, `status`, `createdAt`, `updatedAt`) VALUES
-(1, 'John', 'Doe', 'john.doe@example.com', '1234567890', 'IT', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
-(2, 'Jane', 'Smith', 'jane.smith@example.com', '0987654321', 'HR', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
-(3, 'Alice', 'Johnson', 'alice.johnson@example.com', '1112223333', 'Finance', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
-(4, 'Bob', 'Williams', 'bob.williams@example.com', '4445556666', 'Marketing', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
-(5, 'Charlie', 'Brown', 'charlie.brown@example.com', '7778889999', 'Sales', 'active', '2024-08-12 04:59:49', '2024-08-12 04:59:49'),
-(38, 'Bipul', 'Sardar', 'gmail@gmail.com', '1234567', 'HR', 'active', '2024-08-12 12:12:11', '2024-08-12 12:12:11');
+(1, 'Bipul', 'Sardar', 'bipulsardar421@gmail.com', '987654321', 'HR', 'active', '2024-08-27 10:25:47', '2024-08-27 10:25:47'),
+(2, '', '', '', '', '', 'inactive', '2024-08-27 10:57:40', '2024-08-27 11:10:26'),
+(3, '', '', '', '', '', 'inactive', '2024-08-27 11:00:10', '2024-08-27 11:01:03'),
+(4, 'Bipul', 'Test', 'bipulsardar@tammina.org', '1234819238', 'HR', 'active', '2024-08-27 11:11:09', '2024-08-27 11:11:09'),
+(5, 'Test', 'Test', 'bipul@test.com', '9238459234', 'HR', 'active', '2024-08-27 12:44:01', '2024-08-27 12:44:01'),
+(6, 'sdgdf', 'Tests', 'bipul@gmafdfil.com', '1234567', 'HR', 'active', '2024-08-27 12:46:30', '2024-08-27 12:46:30'),
+(7, 'Test 200', 'Test', 'bipul@gmail.com', '1234567', 'HR', 'active', '2024-08-27 12:46:55', '2024-08-27 12:46:55'),
+(8, 'Bipul', 'Sardar', 'bipulsardar421@hotmail.com', '120384102', 'HR', 'active', '2024-08-27 12:55:51', '2024-08-27 12:55:51'),
+(9, '', '', 'kajsd', '', '', 'inactive', '2024-08-28 04:26:51', '2024-08-28 04:29:15'),
+(10, 'Test 200', 'Test', 'bipul@gmail.com', '1234567', 'HR', 'inactive', '2024-08-28 06:04:51', '2024-08-28 06:05:23'),
+(11, 'test', 'test', 'test312@gmail.com', '1023948012', 'HR', 'inactive', '2024-08-28 06:48:03', '2024-08-28 06:53:56'),
+(12, '', '', '', '', '', 'inactive', '2024-08-28 06:48:11', '2024-08-28 06:53:54'),
+(13, '', '', '', '', '', 'inactive', '2024-08-28 06:48:12', '2024-08-28 06:53:52'),
+(14, '', '', '', '', '', 'inactive', '2024-08-28 06:48:13', '2024-08-28 06:53:47'),
+(15, '', '', '', '', '', 'inactive', '2024-08-28 06:48:13', '2024-08-28 06:53:49'),
+(16, '', '', '', '', '', 'inactive', '2024-08-28 06:48:13', '2024-08-28 06:53:50'),
+(17, 'Test', 'Test', 'test123@gmail.com', '235125154', 'HR', 'active', '2024-08-28 06:54:26', '2024-08-28 06:54:26'),
+(18, 'Me', 'Me', 'me@me.com', '121212121', 'ME', 'active', '2024-08-28 11:29:18', '2024-08-28 11:29:18'),
+(19, 'Test Recording', 'Record', 'testrecord@gmail.com', '981239983', 'IT', 'active', '2024-08-28 12:54:36', '2024-08-28 12:54:36'),
+(20, '', '', '', '', '', 'active', '2024-09-03 05:10:18', '2024-09-03 05:10:18');
 
 -- --------------------------------------------------------
 
@@ -72,12 +86,13 @@ CREATE TABLE `employees_address` (
 --
 
 INSERT INTO `employees_address` (`sl_no`, `user_id`, `type`, `address`, `city`, `country`, `post_code`) VALUES
-(10, 1, 'Home', '123 Main St', 'New York', 'USA', 10001),
-(11, 2, 'Home', '456 Oak St', 'London', 'UK', 0),
-(12, 3, 'Home', '789 Pine St', 'Toronto', 'Canada', 0),
-(13, 4, 'Home', '321 Cedar St', 'Sydney', 'Australia', 2000),
-(14, 5, 'Home', '654 Maple St', 'Mumbai', 'India', 400001),
-(15, 38, 'Permanent', 'B', 'C', 'D', 58648);
+(1, 4, 'Permanent', 'XYZ', 'sf', 'asdfa', 1234123),
+(2, 5, 'Permanent', 'XYZ', 'sf', 'asdfa', 1234123),
+(3, 7, 'Permanent', 'XYZ', 'sf', 'asdfa', 1234123),
+(4, 8, 'Permanent', 'XYZ', 'sf', 'asdfa', 1234123),
+(5, 17, 'Permanent', 'XYZ', 'sf', 'asdfa', 1234123),
+(6, 18, 'Permanent', 'XYZ', 'sf', 'asdfa', 1234123),
+(7, 19, 'Permanent', 'VSKP', 'VSKP', 'India', 530018);
 
 -- --------------------------------------------------------
 
@@ -101,12 +116,13 @@ CREATE TABLE `employees_details_extended` (
 --
 
 INSERT INTO `employees_details_extended` (`sl_no`, `user_id`, `gender`, `dob`, `maritial_status`, `physically_handicapped`, `blood_group`, `nationality`) VALUES
-(10, 1, 'Male', '1985-01-01', 'Single', 'No', 'O+', 'American'),
-(11, 2, 'Female', '1990-02-15', 'Married', 'No', 'A-', 'British'),
-(12, 3, 'Female', '1987-03-20', 'Single', 'No', 'B+', 'Canadian'),
-(13, 4, 'Male', '1983-04-10', 'Married', 'No', 'AB+', 'Australian'),
-(14, 5, 'Male', '1992-05-30', 'Single', 'No', 'O-', 'Indian'),
-(15, 38, 'Male', '16-07-1999', 'Unmarried', 'No', 'O+ve', 'Indian');
+(1, 4, 'Male', '16/07/1999', 'Married', 'Yes', 'O+ve', 'xyz'),
+(2, 5, 'Male', '16/07/1999', 'Married', 'Yes', 'O+ve', 'xyz'),
+(3, 7, 'Male', '16/07/1999', 'Married', 'Yes', 'O+ve', 'xyz'),
+(4, 8, 'Male', '16/07/1999', 'Unmarried', 'No', 'O+ve', 'xyz'),
+(6, 17, 'Male', '16/07/1999', 'Married', 'Yes', 'O+ve', 'xyz'),
+(7, 18, 'Male', '16/07/1999', 'Married', 'Yes', 'O+ve', 'xyz'),
+(8, 19, 'Male', '16-07-1999', 'Unmarried', 'No', 'O+ve', 'Indian');
 
 -- --------------------------------------------------------
 
@@ -129,12 +145,13 @@ CREATE TABLE `employees_education` (
 --
 
 INSERT INTO `employees_education` (`sl_no`, `user_id`, `type`, `branch`, `cgpa`, `yop`, `yoj`) VALUES
-(10, 1, 'B.Tech', 'Computer Science', '8.5', 2007, 2003),
-(11, 2, 'MBA', 'Human Resources', '7.8', 2012, 2010),
-(12, 3, 'B.Com', 'Finance', '8.0', 2009, 2006),
-(13, 4, 'BA', 'Marketing', '7.5', 2005, 2002),
-(14, 5, 'BBA', 'Sales', '8.2', 2014, 2011),
-(15, 38, 'Permanent', 'BTECH', '90', 2022, 2018);
+(1, 4, 'Full Time', 'Cse', '78', 2012, 2022),
+(2, 5, 'Full Time', 'Cse', '78', 2012, 2022),
+(3, 7, 'Full Time', 'Cse', '78', 2012, 2022),
+(4, 8, 'Full Time', 'Cse', '78', 2012, 2022),
+(5, 17, 'Full Time', 'Cse', '78', 2012, 2022),
+(6, 18, 'Full Time', 'Cse', '78', 2012, 2022),
+(7, 19, 'Full Time', 'CSE', '7.8', 2022, 2017);
 
 -- --------------------------------------------------------
 
@@ -155,12 +172,38 @@ CREATE TABLE `employees_personal_contact_details` (
 --
 
 INSERT INTO `employees_personal_contact_details` (`sl_no`, `user_id`, `personal_mobile_number`, `personal_email`, `residence_number`) VALUES
-(10, 1, '1234567890', 'john.personal@example.com', '123456789'),
-(11, 2, '0987654321', 'jane.personal@example.com', '987654321'),
-(12, 3, '1112223333', 'alice.personal@example.com', '111222333'),
-(13, 4, '4445556666', 'bob.personal@example.com', '444555666'),
-(14, 5, '7778889999', 'charlie.personal@example.com', '777888999'),
-(15, 38, '0123', 'bipulsardar@gmail.com', '0123');
+(1, 4, '7979876546', 'bipul@gmail.com', '23412341234'),
+(2, 5, '7979876546', 'bipul@gmail.com', '23412341234'),
+(3, 7, '7979876546', 'bipul@gmail.com', '23412341234'),
+(4, 8, '7979876546', 'bipul@gmail.com', '23412341234'),
+(5, 17, '7979876546', 'bipul@gmail.com', '23412341234'),
+(6, 18, '7979876546', 'bipul@gmail.com', '23412341234'),
+(7, 19, '789461321', 'bipul@gmail.com', '798765564');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emp_image`
+--
+
+CREATE TABLE `emp_image` (
+  `sl_no` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `emp_image`
+--
+
+INSERT INTO `emp_image` (`sl_no`, `user_id`, `url`) VALUES
+(1, 4, '1000250063.jpg'),
+(2, 5, 'IMG_20240523_144909.jpg'),
+(3, 7, '20kib.jpeg'),
+(4, 8, 'Homelander.png'),
+(5, 17, 'sdddsd_pages-to-jpg-0001.jpg'),
+(6, 18, '21kb.jpg'),
+(7, 19, '21kb.jpg');
 
 -- --------------------------------------------------------
 
@@ -191,7 +234,12 @@ INSERT INTO `otpvalidation` (`sl_no`, `email`, `otp`, `status`, `createdAt`, `up
 (30, 'giliver235@biowey.com', '$2y$10$bjc3BjZvNHGpgm01l2Lx0OOE7JaNZWvG8ybKjKsRCKTbXbMbB60IC', 'inactive', '2024-08-02 13:03:35', '2024-08-02 13:03:48'),
 (31, 'yolegic762@biscoine.com', '$2y$10$hZw5sfCBb1FJcbz0E8gv9eHd.NNUmipRfZTHLtYAj35oPfEJbUKFi', 'inactive', '2024-08-02 13:05:15', '2024-08-02 13:05:28'),
 (32, 'hawok45743@biowey.com', '$2y$10$lBC3QD.R4ktLaczQ1nufPu/3jSI9ofDLsCx5mEw15EEixMJUs.BD.', 'inactive', '2024-08-02 13:10:27', '2024-08-02 13:10:43'),
-(33, 'hawok45743@biowey.com', '$2y$10$/rzoXbjyUY78s9RCW2ks1O5PRiYyru5LDc6bWnJVCUx6EO9.X3w2e', 'inactive', '2024-08-02 13:11:20', '2024-08-02 13:11:39');
+(33, 'hawok45743@biowey.com', '$2y$10$/rzoXbjyUY78s9RCW2ks1O5PRiYyru5LDc6bWnJVCUx6EO9.X3w2e', 'inactive', '2024-08-02 13:11:20', '2024-08-02 13:11:39'),
+(34, 'bipulsardar421@gmail.com', '$2y$10$roxRmJPcc51nNQYNYVEGu.SvEHtpOtoWGg.uhPviNKV0gnZH1hcai', 'inactive', '2024-08-22 12:19:13', '2024-08-22 12:19:50'),
+(60, 'bipulsardar091@gmail.com', '$2y$10$253XaRc2PGR0MQoTLRrtkeXlQsJVPnKGdC.OaPNitjjWaMoCzu.ze', 'inactive', '2024-08-29 12:42:21', '2024-08-29 12:45:00'),
+(61, 'bipulsardar091@gmail.com', '$2y$10$6miHv94M810HHUt18PiYTe4ZCtEkI9bnzPyl0vZvEVkvaqwYx3Znm', 'inactive', '2024-08-29 12:47:47', '2024-08-29 12:47:58'),
+(62, 'bipulsardar091@gmail.com', '$2y$10$Xmv3R0A8aeEz0fXRCFzjReHttsXf4Rh7vxt7dzWd4N4Kq2KGDBIhy', 'inactive', '2024-08-29 12:56:18', '2024-08-29 12:56:27'),
+(63, 'bipulsardar091@gmail.com', '$2y$10$VKYHcB.EuZtyA6xoHoCWn.kWTiyhXYYB/icHiX1Bz4BiH6SfJwr5O', 'inactive', '2024-08-30 04:10:58', '2024-08-30 04:11:12');
 
 -- --------------------------------------------------------
 
@@ -220,7 +268,7 @@ INSERT INTO `userdetails` (`sl_no`, `firstName`, `lastName`, `email`, `password`
 (8, 'bipul', 'sardar', 'pocono8@hisotyr.com', '$2y$10$d/v7cgqxiLdjSlEjT2icOescj5IEez8/2DihlByNpsAzBmWnVeoEa'),
 (9, 'bipul', 'test2', 'bipul12@gmail.com', '$2y$10$mPHpjkeQe6kvRsQ611ReXuJLPEARRmHmuuQy5sLipYFbAlUyvaKte'),
 (10, 'Bipul', 'Sardar', 'test243@gmail.com', '$2y$10$oopJEvyHRefrCZL17VaZwup8iKCuhAxS7Xk17uuYrFI0jEOCPRzV6'),
-(11, 'test24', 'test24', 'bipulsardar421@gmail.com', '$2y$10$t3g6q3HFn3TpIJZXH8M3RuW0IpX5.eZ77RGedMmnd2TvVBBkLF56u'),
+(11, 'test24', 'test24', 'bipulsardar421@gmail.com', '$2y$10$4KBfDRNjyLnnsZHyNEpt4eiaRSbYdbZZC6nLjd766lGad9yQZK4vy'),
 (12, 'Bipul', 'Sardar', 'bipul@gmail.com', '$2y$10$fyag1aahN6mikaG..4sJ0e/PK6ul3VOwFmeHEUedrlBQ0DLdpyroK'),
 (13, 'Trial', 'Demo', 'trial@gmail.com', '$2y$10$xz718UG0ozmEBgdhE15seOdCBIrLk6v8j1hIKNW5Lzl1y6MnYuhTO'),
 (14, 'Admin1', 'Admin2', 'admin@gmail.com', '$2y$10$a.WQY48eWGUUbBCWw1f5heIYUwKqwfrlmTKRPuIAiCTlyuQB7CY9y'),
@@ -242,7 +290,35 @@ INSERT INTO `userdetails` (`sl_no`, `firstName`, `lastName`, `email`, `password`
 (31, 'giliver235@biowey.com', 'giliver235@biowey.com', 'giliver235@biowey.com', '$2y$10$Z1C9uuMLEdWGlTL5Gt6XWeF9PvI0wh3bJuL0xNLjWw1ZsLaNi64Q2'),
 (32, 'yolegic762@biscoine.com', 'yolegic762@biscoine.com', 'yolegic762@biscoine.com', '$2y$10$.bU5.0aTZTcqbLmFYkulveaZgXK5FxFvT5zo.HmU2A5QxpGp8vzFm'),
 (33, 'hawok45743@biowey.com', 'hawok45743@biowey.com', 'hawok45743@biowey.com', '$2y$10$WqtubcISaDTUIdyYYcOJR.wunPUQ2a3eHsemN77862FLIl6dICUG.'),
-(34, 'Bipul', 'Sardar', 'gmail@trimail.com', '$2y$10$RTsJ0AnMoI8V.4UHCUXvmehhfLi2C3Qakaxho/pR5h203c4g107q6');
+(34, 'Bipul', 'Sardar', 'gmail@trimail.com', '$2y$10$RTsJ0AnMoI8V.4UHCUXvmehhfLi2C3Qakaxho/pR5h203c4g107q6'),
+(35, 'John', 'Doe', 'john@example.com', '$2y$10$HvRg6atQdhMCnHjx00z4D.moFy2aVsm1F3pBNuGExVRti0qFe.Tpi'),
+(38, 'Bipul', 'Sardar', 'bipulsardar091@gmail.com', '$2y$10$bsUmNB6RF7rPoLfpeZ.y7uIwhlUbkFWujHui7BTGwKctFSXz2w.Du'),
+(39, 'John', 'Doe', 'bipul2322@gmail.com', '$2y$10$UEi7Bn7tNOnEMrZM5IEIk.ypxWddnxtDgvWxX37NTXbfz16tarv.6'),
+(44, 'Bipul', 'Sardar', 'bipulsardar0931@gmail.com', '$2y$10$ZH7Z2IX69OTjE84Hug4TZO.OgcLEAg7jwjmO/WHiQ371QQuttzG3S'),
+(45, 'Bipul', 'Sardar', 'bipulsardar093s1@gmail.com', '$2y$10$8RDVlB2gBFrepwTXpHGWt.L2tjW1ik3HcrchpLXAWK2o3wCyuWo4u'),
+(46, 'Bipul', 'Sardar', 'bipulsardar0912@gmail.com', '$2y$10$jy7WC8T8MuzUIMPlNUkDkOd0.3fUlJnaC1q9BZjnx/sk2SvXtMOYi'),
+(47, 'Bipul', 'Sardar', 'bipulsardar0911@gmail.com', '$2y$10$cbUlQGqmTh6.xEOoloc6COscjUh4go6WrbNwr6ubxKZrd.yMDYyDq'),
+(48, '', '', '', '$2y$10$39./t3mDMvo8O9NLt.0dKeH7EhtG01/8/8oq9FT7BKFEMx6C2nQ2C'),
+(49, 'Bipul', 'Sardar', 'bipulsardar0913@gmail.com', '$2y$10$VZK3SfUzNj0HEo.c3PEG7emmjg5d/.2hC5oPCv86WEzBVUeS.MleO');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_image`
+--
+
+CREATE TABLE `user_image` (
+  `sl_no` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_image`
+--
+
+INSERT INTO `user_image` (`sl_no`, `user_id`, `url`) VALUES
+(1, 1, 'http://example.com/dummy-image.jpg');
 
 --
 -- Indexes for dumped tables
@@ -283,6 +359,13 @@ ALTER TABLE `employees_personal_contact_details`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `emp_image`
+--
+ALTER TABLE `emp_image`
+  ADD PRIMARY KEY (`sl_no`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `otpvalidation`
 --
 ALTER TABLE `otpvalidation`
@@ -296,6 +379,13 @@ ALTER TABLE `userdetails`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `user_image`
+--
+ALTER TABLE `user_image`
+  ADD PRIMARY KEY (`sl_no`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -303,43 +393,55 @@ ALTER TABLE `userdetails`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `employees_address`
 --
 ALTER TABLE `employees_address`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employees_details_extended`
 --
 ALTER TABLE `employees_details_extended`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `employees_education`
 --
 ALTER TABLE `employees_education`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employees_personal_contact_details`
 --
 ALTER TABLE `employees_personal_contact_details`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `emp_image`
+--
+ALTER TABLE `emp_image`
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `otpvalidation`
 --
 ALTER TABLE `otpvalidation`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `userdetails`
 --
 ALTER TABLE `userdetails`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `user_image`
+--
+ALTER TABLE `user_image`
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -368,6 +470,18 @@ ALTER TABLE `employees_education`
 --
 ALTER TABLE `employees_personal_contact_details`
   ADD CONSTRAINT `employees_personal_contact_details_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `employees` (`user_id`);
+
+--
+-- Constraints for table `emp_image`
+--
+ALTER TABLE `emp_image`
+  ADD CONSTRAINT `emp_image_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `employees` (`user_id`);
+
+--
+-- Constraints for table `user_image`
+--
+ALTER TABLE `user_image`
+  ADD CONSTRAINT `user_image_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `userdetails` (`sl_no`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

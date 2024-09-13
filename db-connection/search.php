@@ -7,14 +7,29 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $search = $_POST["search"];
-    // $search = mysqli_real_escape_string($conn, $search);
-
-
-    $sql = "SELECT * FROM employees WHERE 
-            (fname LIKE '%$search%' OR 
-            lname LIKE '%$search%' OR 
-            email LIKE '%$search%' OR 
-            dept LIKE '%$search%') AND 
+    $sql = "SELECT 
+            mainEmp.user_id, mainEmp.fname, mainEmp.lname, mainEmp.email, mainEmp.phone_no, mainEmp.dept,
+            details.gender, details.dob, details.maritial_status, details.physically_handicapped, details.blood_group, details.nationality,
+            edu.type as eduType, edu.branch, edu.cgpa, edu.yop, edu.yoj,
+            contact.personal_mobile_number, contact.personal_email, contact.residence_number,
+            addr.type as addrType, addr.address, addr.city, addr.country, addr.post_code,
+            emp_img.url
+        FROM 
+            employees AS mainEmp
+        LEFT JOIN 
+            employees_details_extended AS details ON mainEmp.user_id = details.user_id
+        LEFT JOIN 
+            employees_education AS edu ON mainEmp.user_id = edu.user_id
+        LEFT JOIN 
+            employees_personal_contact_details AS contact ON mainEmp.user_id = contact.user_id
+        LEFT JOIN 
+            employees_address AS addr ON mainEmp.user_id = addr.user_id
+        LEFT JOIN
+            emp_image AS emp_img on mainEmp.user_id = emp_img.user_id WHERE 
+            (mainEmp.fname LIKE '%$search%' OR 
+            mainEmp.lname LIKE '%$search%' OR 
+            mainEmp.email LIKE '%$search%' OR 
+            mainEmp.dept LIKE '%$search%') AND 
             status = 'active' 
             ORDER BY updatedAt DESC";
 

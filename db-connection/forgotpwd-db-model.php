@@ -1,7 +1,10 @@
 <?php
 include "./main-connection-db-model.php";
+require "../assets/mail-sender.php";
 session_start();
-echo "<script>console.log('hello')</script>";
+
+header('Content-Type: application/json');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $stmt = $conn->prepare("SELECT firstName, lastName, password FROM userdetails WHERE email = ?");
@@ -13,13 +16,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['fname'] = $fname;
         $_SESSION['lname'] = $lname;
         $_SESSION['email'] = $email;
-        $stmt->close();
-        header("Location: ../assets/test.php?email=" . urlencode($email));
-        exit();
+
+        prepare_email($email);
+        echo json_encode([
+            'status' => 'success',
+            'message' => 'User found',
+        ]);
     } else {
-        echo '<script>alert("No user found");
-        window.location.href = "../src/forgot_pwd.php"</script>';
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'No user found'
+        ]);
     }
+
     $stmt->close();
     $conn->close();
 }

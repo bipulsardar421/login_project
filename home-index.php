@@ -3,14 +3,35 @@
 session_start();
 $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 ?>
-<nav class="navbar navbar-expand-sm bg-body-tertiary nav-bar-color"
-    style="position: fixed; top: 0; width: 100%; z-index:1070" id="mainNavContainer">
+<nav class="navbar navbar-expand-sm bg-body-tertiary nav-bar-color" style="position: fixed; top: 0; width: 100%;"
+    id="mainNavContainer">
 
     <div class="container-fluid">
         <div class="row w-100 justify-content-between">
+
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
             <div class="col d-flex align-items-center">
                 <img src="https://cdn.kekastatic.net/shared/branding/logo/keka-logo-light.svg" alt="KEKA">
             </div>
+
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
             <div class="col d-flex justify-content-center">
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <form class="d-flex w-100" role="search" id="search_form">
@@ -37,6 +58,14 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                 </div>
             </div>
 
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
             <div class="col d-flex justify-content-end align-items-center z-3">
                 <div class="btn-group dropStart">
@@ -62,8 +91,6 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                                 Out</a></li>
                     </ul>
                 </div>
-
-
                 <div class="ms-3">
                     <div class="circle">
                         <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
@@ -75,31 +102,88 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
     </div>
 </nav>
 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
 <div class="main-container"
     style="position: fixed; top: 56px; width: 100%; height: calc(100vh - 56px); overflow-y: auto;"
     id="tabPaneMainContainer">
     <div class="sidebar nav flex-column me-3 nav-underline" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <!-- Home Section  -->
         <button type="button" class="btn btn-secondary" id="v-pills-home-tab" data-bs-toggle="pill"
             data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-            <div class="row justify-items-center">
+            <div class="row justify-content-center position-relative" id="mainHomeButtonInTheDashboard">
                 <i class="fa fa-home"></i>
                 <span class="font-size" id="label_side_bar_icon">Home</span>
             </div>
+
         </button>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
 
         <!-- Profile Section -->
         <div class="btn-group dropend">
             <button type="button" class="btn btn-secondary" id="v-pills-profile-tab" data-bs-toggle="pill"
                 data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
                 aria-selected="false">
-                <div class="row justify-items-center">
+                <div class="row justify-items-center" id="mainProfileButtonInTheDashboard">
                     <i class="fas fa-user-circle"></i>
                     <span class="font-size" id="label_side_bar_icon">Me</span>
                 </div>
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" data-value="Yes">Leave</a></li>
+                <li><a class="dropdown-item" performance-me>Leave</a></li>
                 <li><a class="dropdown-item" href="#" data-value="No">Attendance</a></li>
                 <li><a class="dropdown-item" href="#" data-value="No">Performance</a></li>
                 <li><a class="dropdown-item" href="#" data-value="No">Expenses & Travel</a></li>
@@ -109,20 +193,44 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
             </ul>
         </div>
 
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <!-- Message Section -->
         <button type="button" class="btn btn-secondary" id="v-pills-messages-tab" data-bs-toggle="pill"
             data-bs-target="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-            <div class="row justify-items-center">
+            <div class="row justify-items-center" id="mainMessageButtonInTheDashboard">
                 <i class="fa fa-commenting-o"></i>
                 <span class="font-size" id="label_side_bar_icon">Inbox</span>
             </div>
         </button>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <!-- Team Section -->
         <div class="btn-group dropend">
             <button type="button" class="btn btn-secondary" id="v-pills-team-tab" data-bs-toggle="pill"
                 data-bs-target="#v-pills-team" type="button" role="tab" aria-controls="v-pills-team"
                 aria-selected="false">
-                <div class="row justify-items-center" onclick="populateEmployeeDetails()">
+                <div class="row justify-items-center" onclick="populateEmployeeDetails()"
+                    id="mainTeamButtonInTheDashboard">
                     <i class="fa fa-group"></i>
                     <span class="font-size" id="label_side_bar_icon">My Team</span>
                 </div>
@@ -132,12 +240,24 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 
             </ul>
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <!-- Finance Section -->
         <div class="btn-group dropend">
             <button type="button" class="btn btn-secondary" id="v-pills-finance-tab" data-bs-toggle="pill"
                 data-bs-target="#v-pills-finance" type="button" role="tab" aria-controls="v-pills-finance"
                 aria-selected="false">
-                <div class="row justify-items-center">
+                <div class="row justify-items-center" id="mainFinanceButtonInTheDashboard">
                     <i class="fa fa-rupee fa-lg"></i>
                     <span class="font-size" id="label_side_bar_icon">My Finances</span>
                 </div>
@@ -149,12 +269,24 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 
             </ul>
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <!-- Organization Section -->
         <div class="btn-group dropend">
             <button type="button" class="btn btn-secondary" id="v-pills-org-tab" data-bs-toggle="pill"
                 data-bs-target="#v-pills-org" type="button" role="tab" aria-controls="v-pills-org"
                 aria-selected="false">
-                <div class="row justify-items-center">
+                <div class="row justify-items-center" id="mainOrganizationButtonInTheDashboard">
                     <i class="material-icons">location_city</i>
                     <span class="font-size" id="label_side_bar_icon">Org</span>
                 </div>
@@ -167,12 +299,24 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 
             </ul>
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <!-- Performance Section -->
         <div class="btn-group dropend">
             <button type="button" class="btn btn-secondary" id="v-pills-performance-tab" data-bs-toggle="pill"
                 data-bs-target="#v-pills-performance" type="button" role="tab" aria-controls="v-pills-performance"
                 aria-selected="false">
-                <div class="row justify-items-center">
+                <div class="row justify-items-center" id="mainPerformanceButtonInTheDashboard">
                     <i class="fa fa-bar-chart"></i>
                     <span class="font-size" id="label_side_bar_icon">Performance</span>
                 </div>
@@ -185,13 +329,43 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
         </div>
     </div>
 
-    <div class="tab-content z-3" style="flex: 1;
-    overflow-y: auto;
-    background: transparent;">
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
+
+
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+    <div class="tab-content z-3" style="flex: 1;overflow-y: auto;background: transparent;" id="mainTabContent">
 
         <div class="tab-pane fade " style="height: 100vh;" id="v-pills-home" role="tabpanel"
-            aria-labelledby="v-pills-home-tab" tabindex="0">
+            aria-labelledby="v-pills-home-tab" tabindex="0" custom-bs="bs-bs">
             <div class="container mt-3">
                 <div class="row" id="home-content">
                     <div class="col-md-3 mb-4">
@@ -343,76 +517,509 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
             </div>
 
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <div class="tab-pane fade" style="height: 100vh;" id="v-pills-profile" role="tabpanel"
-            aria-labelledby="v-pills-profile-tab" tabindex="0">
-            <div class="container ms-4 mt-3">
-                <div class="card">
-                    <nav class="nav nav-underline p-2">
-                        <a class="nav-link active" aria-current="page" href="#" style="color: black;">Leave</a>
-                        <a class="nav-link" href="#" style="color: black;">Attendance</a>
-                        <a class="nav-link" href="#" style="color: black;">Performance</a>
-                        <a class="nav-link" href="#" style="color: black;">Expenses & Travel</a>
-                        <a class="nav-link" href="#" style="color: black;">Help Desk</a>
-                        <a class="nav-link" href="#" style="color: black;">Apps</a>
-                    </nav>
+            aria-labelledby="v-pills-profile-tab" tabindex="0" custom-bs="bs-bs">
+            <!-- <div class="mt-3" style="margin-right: 0.5%;">
+                <div class="card"> -->
+            <nav class="nav nav-underline p-2">
+                <a class="nav-link active" id="leave-me-tab" data-bs-toggle="tab" data-bs-target="#leave-me"
+                    type="button" role="tab" aria-controls="leave-me" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Leave</a>
+                <a class="nav-link" id="attendance-me-tab" data-bs-toggle="tab" data-bs-target="#attendance-me"
+                    type="button" role="tab" aria-controls="attendance-me" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Attendance</a>
+                <a class="nav-link" id="performance-me-tab" data-bs-toggle="tab" data-bs-target="#performance-me"
+                    type="button" role="tab" aria-controls="performance-me" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Performance</a>
+                <a class="nav-link" id="ent-me-tab" data-bs-toggle="tab" data-bs-target="#ent-me" type="button"
+                    role="tab" aria-controls="ent-me" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Expenses & Travel</a>
+                <a class="nav-link" id="help-me-tab" data-bs-toggle="tab" data-bs-target="#help-me" type="button"
+                    role="tab" aria-controls="help-me" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Help Desk</a>
+                <a class="nav-link" id="app-me-tab" data-bs-toggle="tab" data-bs-target="#app-me" type="button"
+                    role="tab" aria-controls="app-me" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Apps</a>
+            </nav>
+            <hr style="padding: 0; margin: 0; margin-right: 1%;">
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="leave-me" role="tabpanel" aria-labelledby="leave-me-tab" tabindex="0">
+                    <div class="d-flex justify-content-between"
+                        style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="card" style="flex: 1; margin-right: 1%;">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://cdn.kekastatic.net/shared/assets/images/background/elephant.png"
+                                        alt="logo.png" style="width:100px; height:100px">
+
+                                    <div class="d-flex flex-column ms-3">
+                                        <p>Hurray! No pending leave requests</p>
+                                        <p>Request leave on the right!</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card" style="width:30%">
+                            <div class="card-body">
+                                <!-- request leave -->
+                                <div class="col d-flex">
+                                    <div style="display:block; width: 100%;">
+                                        <button class="btn btn-primary btn-sm mb-2" type="button"
+                                            data-bs-toggle="offcanvas" data-bs-target="#requestLeave"
+                                            aria-controls="requestLeave" id="requestLeaveBtn" style="width:fit-content">
+                                            Request Leave
+                                        </button>
+                                        <!-- compensatory leave -->
+                                        <a href="#" class="d-block w-100" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            Request Credit for Compensatory Off
+                                        </a>
+                                        <a href="#" class="d-block w-100" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            Leave Policy Explanation
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ...
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="tab-pane" id="attendance-me" role="tabpanel" aria-labelledby="attendance-me-tab"
+                    tabindex="0">
+                    <!-- attendance main container -->
+                    <div class="d-flex" style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <!-- First Card -->
+                        <div class="card" style="flex: 1; margin-right: 1%;">
+                            <div class="card-header">
+                                ATTENDANCE STATS
+                            </div>
+                            <div class="card-body">
+                                Card Content 1
+                            </div>
+                        </div>
+                        <!-- Second Card -->
+                        <div class="card" style="flex: 1; margin-right: 1%;">
+                            <div class="card-header">
+                                TIMINGS
+                            </div>
+                            <div class="card-body">
+                                Card Content 2
+                            </div>
+                        </div>
+                        <!-- Third Card -->
+                        <div class="card" style="flex: 1;">
+                            <div class="card-header">
+                                <div class="d-flex flex-column align-items-start">
+                                    <span>ACTIONS</span>
+                                    <div id="status" class="w-100"></div>
+                                </div>
+                            </div>
+
+                            <div class="card-body" id="punchin-box">
+                                <div class="d-flex flex-row mb-3">
+                                    <div class="d-flex flex-column align-items-start mb-3 mr-4">
+                                        <div class="mb-2">
+                                            <label class="border" id="live-time"
+                                                style="padding:2px; padding-top: 0;padding-bottom: 0"></label>
+                                        </div>
+                                        <div class="text-muted small">
+                                            <span id="date_live"></span>
+                                        </div>
+                                        &nbsp;
+                                        &nbsp;&nbsp;
+                                        <div class="mb-3" id="total_hrs_dashboard">
+                                            <p class="mb-1"><strong>Total Hours</strong></p>
+                                            <p class="mb-0 small" id="effective_hrs_dashboard"></p>
+                                            <p class="mb-0 small" id="gross_hrs_dashboard"></p>
+                                        </div>
+                                    </div>
+                                    &nbsp;
+                                    &nbsp;&nbsp;
+                                    <div class="d-flex flex-column align-items-start">
+                                        <button class="btn btn-primary" id="punchin_button"
+                                            onclick="handleAttendance()">Web Clock-in</button>
+                                        <p class="text-body-secondary mb-4" style="padding: 0;" hidden
+                                            id="time_since_login"><label></label></p>
+                                        <a href="#" class="d-block mb-1 text-primary"
+                                            style="padding: 0; margin: 0;">Work From Home</a>
+                                        <a href="#" class="d-block text-primary" style="padding: 0; margin: 0;">Partial
+                                            Day</a>
+                                    </div>
+                                    &nbsp;
+                                    &nbsp;&nbsp;
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="card mt-3" style="flex: 1; margin-right: 1%;">
+                        <div class="d-flex align-items-center" id="table-main-nav">
+                            <div class="p-2 flex-grow-1" id="timeLine_table_header">
+                                last 30 days
+                            </div>
+                            <div class="btn-group p-2" role="group" aria-label="Basic radio toggle button group">
+
+                                <input type="radio" class="btn-check" name="btnradio" id="last_thirty_days"
+                                    autocomplete="off" checked>
+                                <label class="btn btn-outline-secondary" for="last_thirty_days">30 Days</label>
+
+                                <input type="radio" class="btn-check" name="btnradio" id="radio_1" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="radio_1"></label>
+
+                                <input type="radio" class="btn-check" name="btnradio" id="radio_2" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="radio_2"></label>
+
+                                <input type="radio" class="btn-check" name="btnradio" id="radio_3" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="radio_3"></label>
+
+                                <input type="radio" class="btn-check" name="btnradio" id="radio_4" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="radio_4"></label>
+
+                                <input type="radio" class="btn-check" name="btnradio" id="radio_5" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="radio_5"></label>
+
+                                <input type="radio" class="btn-check" name="btnradio" id="radio_6" autocomplete="off">
+                                <label class="btn btn-outline-secondary" for="radio_6"></label>
+
+                            </div>
+                        </div>
+                        <div class="card-body" id="attendanceTableContainer">
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane" id="performance-me" role="tabpanel" aria-labelledby="performance-me-tab"
+                    tabindex="0">per
+                </div>
+                <div class="tab-pane" id="ent-me" role="tabpanel" aria-labelledby="ent-me-tab" tabindex="0">e and t
+                </div>
+                <div class="tab-pane" id="help-me" role="tabpanel" aria-labelledby="help-me-tab" tabindex="0">help
+                </div>
+                <div class="tab-pane" id="app-me" role="tabpanel" aria-labelledby="app-me-tab" tabindex="0">app
+                </div>
+                <!-- </div> -->
             </div>
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <div class="tab-pane fade" style="height: 100vh;" id="v-pills-messages" role="tabpanel"
-            aria-labelledby="v-pills-messages-tab" tabindex="0">
-            <div class="container mt-3">
-                <div class="row form-group">
-                    <div class="col-md-2 p-0">
-                        <div class="card">
-                            <div class="card-body">Message Label</div>
+            aria-labelledby="v-pills-messages-tab" tabindex="0" custom-bs="bs-bs">
+            <nav class="nav nav-underline p-2">
+                <a class="nav-link active" id="take-action-message-tab" data-bs-toggle="tab"
+                    data-bs-target="#take-action-message" type="button" role="tab" aria-controls="take-action-message"
+                    aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Take Action</a>
+                <a class="nav-link" id="notification-message-tab" data-bs-toggle="tab"
+                    data-bs-target="#notification-message" type="button" role="tab" aria-controls="notification-message"
+                    aria-selected="true" style="color: black; display: flex; align-items: center; position: relative;">
+                    Notification
+                </a>
+
+                <a class="nav-link" id="archive-message-tab" data-bs-toggle="tab" data-bs-target="#archive-message"
+                    type="button" role="tab" aria-controls="archive-message" aria-selected="true"
+                    style="color: black;">Archive</a>
+            </nav>
+            <hr style="padding: 0; margin: 0; margin-right: 1%;">
+            <div class="tab-content">
+                <div class="tab-pane active" id="take-action-message" role="tabpanel"
+                    aria-labelledby="take-action-message-tab" tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">Message Label</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">Message Data</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-10 p-0">
-                        <div class="card">
-                            <div class="card-body">Message Data</div>
+                </div>
+                <div class="tab-pane" id="notification-message" role="tabpanel"
+                    aria-labelledby="notification-message-tab" tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">Notification Label</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">Notification Data</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="archive-message" role="tabpanel" aria-labelledby="archive-message-tab"
+                    tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">Archive Label</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">Archive Data</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <div class="tab-pane fade" style="height: 100vh;" id="v-pills-team" role="tabpanel"
-            aria-labelledby="v-pills-team-tab" tabindex="0">
-            <div class="container mt-5">
-                <div class="row" id="employee-cards">
+            aria-labelledby="v-pills-team-tab" tabindex="0" custom-bs="bs-bs">
+            <nav class="nav nav-underline p-2">
+                <a class="nav-link active" id="summary-team-tab" data-bs-toggle="tab" data-bs-target="#summary-team"
+                    type="button" role="tab" aria-controls="summary-team" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">
+                    Summary</a>
+            </nav>
+            <hr style="padding: 0; margin: 0; margin-right: 1%;">
+            &nbsp;
+            <div class="tab-content" style="padding: 0; margin: 0; margin-right: 1%;">
+                <div class="tab-pane active" id="summary-team" role="tabpanel" aria-labelledby="summary-team-tab"
+                    tabindex="0">
+
+                    <div class="row d-flex flex-wrap justify-content-start" id="employee-cards">
+                    </div>
+
                 </div>
             </div>
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <div class="tab-pane fade" style="height: 100vh;" id="v-pills-finance" role="tabpanel"
-            aria-labelledby="v-pills-finance-tab" tabindex="0">
-            <div class="container ms-4 mt-3">
-                <div class="card">
-                    <nav class="nav nav-underline p-2">
-                        <a class="nav-link active" aria-current="page" href="#" style="color: black;">Summary</a>
-                        <a class="nav-link" href="#" style="color: black;">My Pay</a>
-                        <a class="nav-link" href="#" style="color: black;">Manage Tax</a>
-
-                    </nav>
+            style="color: black; display: flex; align-items: center; position: relative;"
+            aria-labelledby="v-pills-finance-tab" tabindex="0" custom-bs="bs-bs">
+            <nav class="nav nav-underline p-2">
+                <a class="nav-link active" id="summary-finance-tab" data-bs-toggle="tab"
+                    data-bs-target="#summary-finance" type="button" role="tab" aria-controls="summary-finance"
+                    aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Summary</a>
+                <a class="nav-link" id="my-pay-finance-tab" data-bs-toggle="tab" data-bs-target="#my-pay-finance"
+                    type="button" role="tab" aria-controls="my-pay-finance" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">My Pay</a>
+                <a class="nav-link" id="manage-tax-finance-tab" data-bs-toggle="tab"
+                    data-bs-target="#manage-tax-finance" type="button" role="tab" aria-controls="manage-tax-finance"
+                    aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Manage Tax</a>
+            </nav>
+            <hr style="padding: 0; margin: 0; margin-right: 1%;">
+            <div class="tab-content">
+                <div class="tab-pane active" id="summary-finance" role="tabpanel" aria-labelledby="summary-finance-tab"
+                    tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">Finance Summary</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">Finance Data</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="my-pay-finance" role="tabpanel" aria-labelledby="my-pay-finance-tab"
+                    tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">My Pay Label</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">My Pay Data</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="manage-tax-finance" role="tabpanel" aria-labelledby="manage-tax-finance-tab"
+                    tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">Manage Tax Label</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">Manage Data</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
 
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <div class="tab-pane fade" style="height: 100vh;" id="v-pills-org" role="tabpanel"
-            aria-labelledby="v-pills-org-tab" tabindex="0">
-            <div class="container ms-4 mt-3">
-                <div class="card">
-                    <nav class="nav nav-underline p-2">
-                        <a class="nav-link active" aria-current="page" href="#" style="color: black;">Employees</a>
-                        <a class="nav-link" href="#" style="color: black;">Documents</a>
-                        <a class="nav-link" href="#" style="color: black;">Engage</a>
+            aria-labelledby="v-pills-org-tab" tabindex="0" custom-bs="bs-bs">
+            <nav class="nav nav-underline p-2">
+                <a class="nav-link active" id="employees-org-tab" data-bs-toggle="tab" data-bs-target="#employees-org"
+                    type="button" role="tab" aria-controls="employees-org" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">Employees</a>
+                <a class="nav-link" id="documents-org-tab" data-bs-toggle="tab" data-bs-target="#documents-org"
+                    type="button" role="tab" aria-controls="documents-org" aria-selected="true"
+                    style="color: black; display: flex; align-items: center; position: relative;">
+                    Documents
+                </a>
 
-                    </nav>
+                <a class="nav-link" id="engage-org-tab" data-bs-toggle="tab" data-bs-target="#engage-org" type="button"
+                    role="tab" aria-controls="engage-org" aria-selected="true" style="color: black;">Engage</a>
+            </nav>
+            <hr style="padding: 0; margin: 0; margin-right: 1%;">
+            <div class="tab-content">
+                <div class="tab-pane active" id="employees-org" role="tabpanel" aria-labelledby="employees-org-tab"
+                    tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">Message Label</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">Message Data</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="documents-org" role="tabpanel" aria-labelledby="documents-org-tab"
+                    tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">Notification Label</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">Notification Data</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="engage-org" role="tabpanel" aria-labelledby="engage-org-tab" tabindex="0">
+                    <div class="row form-group " style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
+                        <div class="col-md-2 p-0">
+                            <div class="card">
+                                <div class="card-body">Archive Label</div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 p-0">
+                            <div class="card">
+                                <div class="card-body">Archive Data</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <div class="tab-pane fade " style="height: 100vh;" id="v-pills-performance" role="tabpanel"
-            aria-labelledby="v-pills-performance-tab" tabindex="0">
+            aria-labelledby="v-pills-performance-tab" tabindex="0" custom-bs="bs-bs">
             <div class="container mt-3">
                 <div class="row">
                     <div class="col-md-6">
@@ -428,6 +1035,39 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                 </div>
             </div>
         </div>
+
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
 
 
 
@@ -447,52 +1087,71 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
             Bipul Sardar
         </div>
 
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
         <!-- THis section handles the clicks from the employees-card -->
         <div class="tab-pane fade " id="employees-nav" role="tabpanel" aria-labelledby="v-pills-performance-tab"
             tabindex="0">
-            <div class="container mt-3">
-                <div class="row" id="employee-detail-cards">
-                </div>
-
+            <div class="row mt-4" id="employee-detail-cards"
+                style="padding: 0; margin: 0; margin-top: 5px; margin-right: 1%;">
             </div>
         </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+        <!-- table data display -->
+
         <div class="tab-pane fade " id="employees-summary-nav" role="tabpanel" aria-labelledby="v-pills-performance-tab"
             tabindex="0">
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card mb-5">
+            <div class="row" style="padding: 0; margin: 0; margin-top: 25px; margin-right: 1%;">
+                <div class="z-3" id="status"></div>
 
-                            <div class="card-body vh-100" style="overflow-y: auto;">
-                                <form>
-                                    <div id="status">
-                                    </div>
+                <div class="col-md-12">
+                    <div class="card mb-5">
 
-                                    <div class="d-grid d-md-flex justify-content-md-end">
-                                        <button type="button" class="btn btn-primary col-md-4 m-1"
-                                            data-bs-toggle="modal" data-bs-target="#addEmp">
-                                            Add New Employee
-                                        </button>
-                                    </div>
-                                    <table border="1" class="table table-hover border border-success p-2 mb-2">
-                                        <thead>
-                                            <tr style="text-align: center;">
-                                                <th style="padding: 10px;">Sl No</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Email</th>
-                                                <th>Phone Number</th>
-                                                <th>Department</th>
-                                                <th>Edit</th>
-                                                <th>Delete</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="employeeTableBody">
-                                            <!-- Employees will be populated here dynamically using jQuery -->
-                                        </tbody>
-                                    </table>
-                                </form>
-                            </div>
+                        <div class="card-body vh-100" style="overflow-y: auto;">
+                            <form>
+                                <div class="d-grid d-md-flex justify-content-md-end">
+                                    <button type="button" class="btn btn-primary col-md-4 m-1" data-bs-toggle="modal"
+                                        data-bs-target="#addEmp">
+                                        Add New Employee
+                                    </button>
+                                </div>
+                                <table border="1" class="table table-hover border border-success p-2 mb-2">
+                                    <thead>
+                                        <tr style="text-align: center;">
+                                            <th style="padding: 10px;">Sl No</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th>Department</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="employeeTableBody">
+                                        <!-- Employees will be populated here dynamically using jQuery -->
+                                    </tbody>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -501,6 +1160,42 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
         </div>
     </div>
 </div>
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+<!-- tab contents ends here -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
 
 
 <!-- Add Emp-->
@@ -552,12 +1247,47 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="emp_details_add_btn">Add Employees</button>
+                    <button type="button" class="btn btn-primary" id="emp_details_add_btn">Add
+                        Employees</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- eidt emp -->
 
 <div class="modal fade" style="position: fixed; top: 0; width: 100%; z-index: 1070;" id="editEmp" tabindex="-1"
     aria-labelledby="editModalLabel" aria-hidden="true">
@@ -594,8 +1324,11 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                         <input class="form-control" type="text" id="dept" name="dept" required>
                     </div>
                     <input type="hidden" id="user_id" name="user_id">
-                    <div class="sign_btn">
-                        <button type="submit" class="btn btn-primary">Update Employee</button>
+                    <div class="sign_btn d-flex justify-content-end gap-3">
+                        <!-- <button type="submit" class="btn btn-primary">Update Employee</button> -->
+                        <button type="submit" class="btn btn-success"
+                            onclick="editAddlInformation(document.getElementById('user_id').value)">Next</button>
+
                     </div>
                 </form>
             </div>
@@ -603,6 +1336,18 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
     </div>
 </div>
 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- delete confirmation modal -->
 <div class="modal fade mt-3" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -618,6 +1363,17 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
         </div>
     </div>
 </div>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
 
 <!-- addl information -->
 <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
@@ -844,7 +1600,7 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                                         <span class="input-group-text" id="inputGroup-sizing-sm">Type of
                                             Address</span>
                                         <button class="form-control btn btn-outline-secondary dropdown-toggle"
-                                            style="border-color:#dee2e6" type="button" id="edu"
+                                            style="border-color:#dee2e6" type="button" id="addressType"
                                             data-bs-toggle="dropdown" aria-expanded="true">
                                             Select an option
                                         </button>
@@ -904,7 +1660,8 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                                             <div class="upload-icon">
                                                 <img src="assets/icons/upload.svg" alt="Upload Icon">
                                             </div>
-                                            <p>Drop your image here, or <a href="#" id="browseBtn">browse</a></p>
+                                            <p>Drop your image here, or <a href="#" id="browseBtn">browse</a>
+                                            </p>
                                             <p>Supports: JPG, JPEG and PNG</p>
                                             <input type="file" id="fileInput" style="display: none;" name="image"
                                                 accept="image/*">
@@ -923,4 +1680,108 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
     </div>
 </div>
 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- request leave offcanvas -->
+<div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="requestLeave"
+    aria-labelledby="requestLeaveLabel" style="background: rgb(255,242,242);
+background: linear-gradient(0deg, rgba(255,242,242,1) 0%, rgba(255,242,242,1) 100%);">
+    <!-- header -->
+    <div class="offcanvas-header">
+        <h1 class="offcanvas-title" id="requestLeaveLabel">Request Leave</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <!-- header -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- body -->
+    <div class="offcanvas-body">
+        <div class="box d-flex justify-content-center align-items-center">
+            <div class="col">
+                <input class="form-control" type="date" id="fromDate">
+                <label>To</label>
+                <input class="form-control" type="date" id="toDate">
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+        <div class="box">
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Select type of leave you want to apply</option>
+                <option value="1">Casual Leave</option>
+                <option value="2">Breavement Leave</option>
+                <option value="3">Comp Off</option>
+                <option value="4">Marriage Leaves</option>
+                <option value="5">Sick Leave</option>
+                <option value="6">Unpaid Leave</option>
+
+            </select>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+        <div class="box">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Note</label>
+            </div>
+
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+        <div class="card">
+            <div class="card-header autocomplete-container d-block">
+                <div id="selected-users" class="mb-2">
+                </div>
+                <input class="form-control" type="text" id="search-leave-request" placeholder="Search Employee...">
+            </div>
+            <div class="card-body d-none" id="search-result-leave"
+                style="height:190px; overflow-x:hidden; overflow-y:auto;">
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+    </div>
+    <!-- body -->
+    <!-- /////////////////////////////////////////////////////////////////// -->
+    <div class="offcanvas-footer mb-4">
+        <div class="d-block float-end">
+            <button class="btn btn-danger">Cancel</button>
+            <button class="btn btn-success">Request Leave</button>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
 <?php include "./include_bootstrap/main-contents-footer.php"; ?>

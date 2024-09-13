@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "./db-connection/main-connection-db-model.php";
+include "main-connection-db-model.php";
 
 // Set response header to JSON
 header('Content-Type: application/json');

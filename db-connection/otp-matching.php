@@ -1,5 +1,8 @@
 <?php
-include ("main-connection-db-model.php");
+include("main-connection-db-model.php");
+header('Content-Type: application/json');
+
+$response = array();
 
 if (isset($_POST["otpVerify"])) {
     $email = $_POST["email"];
@@ -8,29 +11,37 @@ if (isset($_POST["otpVerify"])) {
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();
+
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $email = $row['email'];
+        $db_email = $row['email'];
         $db_otp = $row['otp'];
+
         if (password_verify($entered_otp, $db_otp)) {
             $sql = "UPDATE otpvalidation SET status = 'inactive' WHERE otp=?";
             $del = $conn->prepare($sql);
-            $del->bind_param("i", $db_otp);
-
+            $del->bind_param("s", $db_otp);
             if ($del->execute()) {
-                header("Location: ../src/reset_pwd.php?email=" . urlencode($email));
+                $response['status'] = 'success';
+                $response['message'] = 'OTP verified successfully';
+                $response['redirect'] = './src/reset_pwd.php?email=' . urlencode($db_email);
             } else {
-                echo "Error: " . $del->error;
+                $response['status'] = 'error';
+                $response['message'] = 'Error updating OTP status: ' . $del->error;
             }
             $del->close();
         } else {
-            echo "Not Matched";
+            $response['status'] = 'error';
+            $response['message'] = 'OTP does not match';
         }
     } else {
-        echo "No active OTP found for this email.";
+        $response['status'] = 'error';
+        $response['message'] = 'No active OTP found for this email';
     }
     $stmt->close();
 } else {
-    echo "OTP verification was not requested.";
+    $response['status'] = 'error';
+    $response['message'] = 'OTP verification request not received';
 }
+echo json_encode($response);
 ?>
