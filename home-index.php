@@ -427,7 +427,12 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
                             </div>
                         </div>
                     </div>
-
+                    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                     <div class="col-md-6 mb-4">
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-outline-secondary"
@@ -531,8 +536,6 @@ $employees = isset($_SESSION['fname']) ? $_SESSION['fname'] : [];
 
         <div class="tab-pane fade" style="height: 100vh;" id="v-pills-profile" role="tabpanel"
             aria-labelledby="v-pills-profile-tab" tabindex="0" custom-bs="bs-bs">
-            <!-- <div class="mt-3" style="margin-right: 0.5%;">
-                <div class="card"> -->
             <nav class="nav nav-underline p-2">
                 <a class="nav-link active" id="leave-me-tab" data-bs-toggle="tab" data-bs-target="#leave-me"
                     type="button" role="tab" aria-controls="leave-me" aria-selected="true"
